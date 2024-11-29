@@ -1,7 +1,5 @@
-import random
-import time
-import math
-import sys
+import random, time, math, sys
+from colorama import Fore, Back, Style
 
 #* declaring variables *#
 with open('list.txt', 'r') as l:
@@ -20,7 +18,7 @@ def call_error(param, errorType='none', minR=0, maxR=0):
     print('\033c', end='') # clear terminal
 
     # something went wrong (Fire Font-k)
-    print('')                                                                                                             
+    print(Fore.RED)                                                                                                             
     print('                           )    )                                           )                                   ')
     print('             )      (   ( /( ( /( (          (  (    (  (      (         ( /(   (  (    (                (  (   ')
     print(' (    (     (      ))\\  )\\()))\\()))\\   (     )\\))(   )\\))(    ))\\  (     )\\())  )\\))(   )(    (    (     )\\))(  ')
@@ -49,13 +47,13 @@ def name_web(selectedNumber, last=False):
         # checks whether it is at the beginning of the line
         if i % 3 == 0: 
             start = random.randint(1, spacingMax)
-            print('~' * start, end='')
+            print(Fore.YELLOW + '~' * start, end='')
 
         nLength = len(names[i])
 
         # UPPER CASE if selected, lower case if not
         if i == selectedNumber:
-            print(names[i][:nLengthMax].upper(), end='')
+            print(Fore.RED + names[i][:nLengthMax].upper() + Fore.YELLOW, end='')
 
             if last:
                 chosenName = names[i] # sets chosen name to selected name
@@ -64,23 +62,23 @@ def name_web(selectedNumber, last=False):
 
         # buffer text
         print('~' * (nLengthMax - nLength), end='')
+        print('~' * 5, end='')
         
         # checks whether it is at the end of the line
         if i % 3 == 2: 
             print('~' * (spacingMax - start))
-    print('') # end of name web (in case it ends with no newline)
 
 #* program *#
 while True:
     # PNAME Stick Letters
-    print(' __                  ___ ')
+    print(Fore.BLUE + ' __                  ___ ')
     print('|__) |\\ |  /\\  |\\/| |__  ')
     print('|    | \\| /~~\\ |  | |___ ')             
-    print('')
-    print('|| made by sbird ||')
-    print('')
+    print(Fore.RESET)
+    print(Fore.GREEN + '|| made by sbird ||')
+    print(Fore.RESET)
               
-    print('What would you like to do?')
+    print(Fore.YELLOW + 'What would you like to do?')
     print('')
     print('~ run')
     print('~ quit')
@@ -94,9 +92,9 @@ while True:
 
             for i in range(10):
                 # random number
-                index = random.randint(0, len(names))
+                r = random.randint(0, len(names))
                 
-                name_web(index)
+                name_web(r)
 
                 # delay
                 time.sleep(delay)
@@ -105,15 +103,15 @@ while True:
                 print('\033c', end='') # clear terminal
             
             # random number
-            index = random.randint(0, 8)            
-            name_web(index, True)
+            r = random.randint(0, len(names))            
+            name_web(r, True)
 
             time.sleep(0.8)
 
             print('\033c', end='') # clear terminal
 
-            print('|~' + ('~' * len(chosenName)) + '~|')
-            print('| ' + chosenName + ' |')
+            print(Fore.YELLOW + '|~' + ('~' * len(chosenName)) + '~|')
+            print('| ' + Fore.RED + chosenName + Fore.YELLOW + ' |')
             print('|~' + ('~' * len(chosenName)) + '~|')
             print('')
             input('~~> ')
