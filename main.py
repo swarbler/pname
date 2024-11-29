@@ -18,7 +18,7 @@ def call_error(param, errorType='none', minR=0, maxR=0):
     print('\033c', end='') # clear terminal
 
     # something went wrong (Fire Font-k)
-    print(Fore.RED)                                                                                                             
+    print(Fore.RED, end='')
     print('                           )    )                                           )                                   ')
     print('             )      (   ( /( ( /( (          (  (    (  (      (         ( /(   (  (    (                (  (   ')
     print(' (    (     (      ))\\  )\\()))\\()))\\   (     )\\))(   )\\))(    ))\\  (     )\\())  )\\))(   )(    (    (     )\\))(  ')
@@ -71,14 +71,15 @@ def name_web(selectedNumber, last=False):
 #* program *#
 while True:
     # PNAME Stick Letters
-    print(Fore.BLUE + ' __                  ___ ')
+    print(Fore.BLUE, end='')
+    print(' __                  ___ ')
     print('|__) |\\ |  /\\  |\\/| |__  ')
     print('|    | \\| /~~\\ |  | |___ ')             
-    print(Fore.RESET)
-    print(Fore.GREEN + '|| made by sbird ||')
-    print(Fore.RESET)
-              
-    print(Fore.YELLOW + 'What would you like to do?')
+    print(Fore.GREEN)
+    print('|| made by sbird ||')
+
+    print(Fore.YELLOW)
+    print('What would you like to do?')
     print('')
     print('~ run')
     print('~ quit')
@@ -110,7 +111,8 @@ while True:
 
             print('\033c', end='') # clear terminal
 
-            print(Fore.YELLOW + '|~' + ('~' * len(chosenName)) + '~|')
+            print(Fore.YELLOW, end='')
+            print('|~' + ('~' * len(chosenName)) + '~|')
             print('| ' + Fore.RED + chosenName + Fore.YELLOW + ' |')
             print('|~' + ('~' * len(chosenName)) + '~|')
             print('')
