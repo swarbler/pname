@@ -4,27 +4,12 @@ import math
 import sys
 
 #* declaring variables *#
-names = [
-    "Bob",
-    "Clark",
-    "qwertyuiopasdfghjklzxcvbnm",
-    "Joe",
-    "Emily",
-    "Sarah",
-    "Jim",
-    "Poseidon",
-    "Nicole",
-    "Henry",
-    "Jeremy",
-    "Pig",
-    "Bard",
-    "Kevin",
-    "Seargent",
-    "Stuart",
-    "Gobble",
-    "Zeus"
-]
+with open('list.txt', 'r') as l:
+    names = l.split('\n')
+
 chosenName = ""
+spacingMax = 5
+nLengthMax = 20
 
 
 #* declaring functions *#
@@ -61,31 +46,40 @@ def name_web(selectedNumber, last=False):
     global chosenName
 
     for i in range(len(names)):
+        # checks whether it is at the beginning of the line
         if i % 3 == 0: 
-            start = random.randint(1, 5)
+            start = random.randint(1, spacingMax)
             print('~' * start, end='')
 
         nLength = len(names[i])
-        if i == selectedNumber:
-            print(names[i][:20].upper(), end='')
-            if last:
-                chosenName = names[i]
-        else:
-            print(names[i][:20].lower(), end='')
 
-        print('~' * (20 - nLength), end='')
+        # UPPER CASE if selected, lower case if not
+        if i == selectedNumber:
+            print(names[i][:nLengthMax].upper(), end='')
+
+            if last:
+                chosenName = names[i] # sets chosen name to selected name
+        else:
+            print(names[i][:nLengthMax].lower(), end='')
+
+        # buffer text
+        print('~' * (nLengthMax - nLength), end='')
         
+        # checks whether it is at the end of the line
         if i % 3 == 2: 
-            print('~' * (5 - start))
-    print('')
+            print('~' * (spacingMax - start))
+    print('') # end of name web (in case it ends with no newline)
 
 #* program *#
 while True:
+    # PNAME Stick Letters
+    print(' __                  ___ ')
+    print('|__) |\\ |  /\\  |\\/| |__  ')
+    print('|    | \\| /~~\\ |  | |___ ')             
     print('')
     print('|| made by sbird ||')
     print('')
-                                                                                                                                                                                                                                                                                         
-    # choose subject to study
+              
     print('What would you like to do?')
     print('')
     print('~ run')
