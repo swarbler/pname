@@ -5,7 +5,7 @@ import sys
 
 #* declaring variables *#
 with open('list.txt', 'r') as l:
-    names = l.split('\n')
+    names = l.read().split('\n')
 
 chosenName = ""
 spacingMax = 5
@@ -90,6 +90,7 @@ while True:
     match userAction:
         case 'run':
             delay = 0
+            random.shuffle(names)
 
             for i in range(10):
                 # random number
