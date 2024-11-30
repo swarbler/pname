@@ -150,14 +150,14 @@ def name_birds(selectedNumber, last=False):
 def name_tv(selectedNumber, last=False):
     global chosenName
 
-    print(Fore.BLACK, end='')
+    print(Fore.GREEN, end='')
     print(' _____________________     ')
     print('|,----------------.  |\\    ')
     print('||                 |=| |   ')
     if last:
-        print('|| ' + Fore.MAGENTA + names[selectedNumber][:14] + ' ' * (14 - len(names[selectedNumber][:14])) + Fore.BLACK + ' || | |   ')
+        print('|| ' + Fore.MAGENTA + names[selectedNumber][:14] + ' ' * (14 - len(names[selectedNumber][:14])) + Fore.GREEN + ' || | |   ')
     else:
-        print('|| ' + Fore.BLUE + names[selectedNumber][:14] + ' ' * (14 - len(names[selectedNumber][:14])) + Fore.BLACK + ' || | |   ')
+        print('|| ' + Fore.BLUE + names[selectedNumber][:14] + ' ' * (14 - len(names[selectedNumber][:14])) + Fore.GREEN + ' || | |   ')
     print('||             . _o| | | __')
     print('|`-----------------\' |/ /~/')
     print(' ~~~~~~~~~~~~~~~~~~~~~ / / ')
@@ -169,13 +169,13 @@ def name_tv(selectedNumber, last=False):
 def name_calc(selectedNumber, last=False):
     global chosenName
 
-    print(Fore.BLACK, end='')
+    print(Fore.GREEN, end='')
     print(' __________ ')
     print('| ________ |')
     if last:
-        print('||' + Fore.MAGENTA + names[selectedNumber][:8] + ' ' * (8 - len(names[selectedNumber][:8])) + Fore.BLACK + '||')
+        print('||' + Fore.MAGENTA + names[selectedNumber][:8] + ' ' * (8 - len(names[selectedNumber][:8])) + Fore.GREEN + '||')
     else:
-        print('||' + Fore.GREEN + names[selectedNumber][:8] + ' ' * (8 - len(names[selectedNumber][:8])) + Fore.BLACK + '||')
+        print('||' + Fore.BLUE + names[selectedNumber][:8] + ' ' * (8 - len(names[selectedNumber][:8])) + Fore.GREEN + '||')
     print('|""""""""""|')
     print('|[M|#|C][-]|')
     print('|[7|8|9][+]|')
