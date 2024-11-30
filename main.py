@@ -3,7 +3,7 @@ from colorama import Fore, Back, Style
 
 #* declaring variables *#
 with open('list.txt', 'r') as l:
-    names = l.read().split('\n')
+    names = l.read().split()
 
 chosenName = ''
 spacingMax = 5
@@ -75,7 +75,7 @@ def name_spiderman(r1, last=False):
     """creates spiderman"""
     global chosenName
 
-    r2, r3, r4, r5 = random.randint(0, len(names) - 1), random.randint(0, len(names) - 1), random.randint(0, len(names) - 1), random.randint(0, len(names)- 1)
+    r2, r3, r4, r5 = random.randrange(0, len(names)), random.randrange(0, len(names)), random.randrange(0, len(names)), random.randint(0, len(names)- 1)
 
     print(Fore.RED, end='')
     print('  _                                                                        ')
@@ -124,6 +124,7 @@ def name_spiderman(r1, last=False):
     if last:
         chosenName = names[r1]
 
+
 #* program *#
 while True:
     # PNAME Stick Letters
@@ -149,7 +150,7 @@ while True:
             random.shuffle(names)
 
             for i in range(trickleTime):
-                r = random.randint(0, len(names) - 1)
+                r = random.randrange(0, len(names))
                 
                 match userAction:
                     case 'web':
@@ -162,7 +163,7 @@ while True:
 
                 print('\033c', end='') # clear terminal
             
-            r = random.randint(0, len(names) - 1)    
+            r = random.randrange(0, len(names))    
 
             match userAction:
                 case 'web':
