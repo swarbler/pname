@@ -147,6 +147,24 @@ def name_birds(selectedNumber, last=False):
     if last:
         chosenName = names[selectedNumber]
 
+def name_tv(selectedNumber, last=False):
+    print(Fore.BLACK, end='')
+    print(' _____________________     ')
+    print('|,----------------.  |\\    ')
+    print('||                 |=| |   ')
+    if last:
+        print('|| ' + Fore.MAGENTA + names[selectedNumber][:14] + ' ' * (14 - len(names[selectedNumber])) + Fore.BLACK + ' || | |   ')
+    else:
+        print('|| ' + Fore.BLUE + names[selectedNumber][:14] + ' ' * (14 - len(names[selectedNumber])) + Fore.BLACK + ' || | |   ')
+    print('||             . _o| | | __')
+    print('|`-----------------\' |/ /~/')
+    print(' ~~~~~~~~~~~~~~~~~~~~~ / / ')
+    print('                       ~~  ')
+
+    if last:
+        chosenName = names[selectedNumber]
+
+
 #* program *#
 while True:
     # PNAME Stick Letters
@@ -163,12 +181,13 @@ while True:
     print('~ web')
     print('~ spiderman')
     print('~ birds')
+    print('~ television')
     print('~ quit')
     print('')
     userAction = input('~~> ').lower() # sets answer as lowercase to avoid miscasing
     
     match userAction:
-        case 'web' | 'spiderman' | 'birds' | 'bird':
+        case 'web' | 'spiderman' | 'birds' | 'bird' | 'tv' | 'television':
             delay = 0
             random.shuffle(names)
 
@@ -182,6 +201,8 @@ while True:
                         name_spiderman(r)
                     case 'birds' | 'bird':
                         name_birds(r)
+                    case 'tv' | 'television':
+                        name_tv(r)
 
                 time.sleep(delay)
                 delay = delay + 0.1 # delay increases every time
@@ -197,6 +218,8 @@ while True:
                     name_spiderman(r, True)
                 case 'birds' | 'bird':
                     name_birds(r, True)
+                case 'tv' | 'television':
+                    name_tv(r, True)
 
             time.sleep(0.8)
 
@@ -207,7 +230,7 @@ while True:
             match userAction:
                 case 'web':
                     print('| ' + Fore.GREEN + chosenName + Fore.YELLOW + ' |')
-                case 'spiderman':
+                case 'spiderman' | 'tv' | 'television':
                     print('| ' + Fore.MAGENTA + chosenName + Fore.YELLOW + ' |')
                 case 'birds' | 'bird':
                     print('| ' + Fore.RED + chosenName + Fore.YELLOW + ' |')
