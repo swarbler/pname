@@ -131,7 +131,7 @@ def name_birds(selectedNumber, last=False):
     print('   (                          \\\\')
     if last:
         print('  `-`-.               \\\\      (->')
-        print('  \'( - >              (->     //\\      ' + Fore.RED + names[selectedNumber][:20] + Fore.CYAN)
+        print('  \'( - >              (->     //\\      ' + Fore.MAGENTA + names[selectedNumber][:20] + Fore.CYAN)
     else:
         print('  `-`-.               \\\\      (o>')
         print('  \'( O >              (o>     //\\      ' + Fore.GREEN + names[selectedNumber][:20] + Fore.CYAN)
