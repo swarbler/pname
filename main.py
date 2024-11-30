@@ -124,6 +124,28 @@ def name_spiderman(r1, last=False):
     if last:
         chosenName = names[r1]
 
+def name_birds(selectedNumber, last=False):
+    global chosenName
+
+    print(Fore.CYAN, end='')
+    print('   (                          \\\\')
+    if last:
+        print('  `-`-.               \\\\      (->')
+        print('  \'( - >              (->     //\\      ' + Fore.RED + names[selectedNumber] + Fore.CYAN)
+    else:
+        print('  `-`-.               \\\\      (o>')
+        print('  \'( O >              (o>     //\\      ' + Fore.GREEN + names[selectedNumber] + Fore.CYAN)
+    print('   _) (           ____(()_____V_/_____')
+    print('  /    )              ||      ||               ,_,')
+    if last:
+        print(' /_,\'  /                     ||               (.,.)')
+    else:
+        print(' /_,\'  /                     ||               (O,O)')
+    print('   \\  /                                       (   )')
+    print('===m""m=========================         ------"-"-------')
+
+    if last:
+        chosenName = names[selectedNumber]
 
 #* program *#
 while True:
@@ -140,12 +162,13 @@ while True:
     print('')
     print('~ web')
     print('~ spiderman')
+    print('~ birds')
     print('~ quit')
     print('')
     userAction = input('~~> ').lower() # sets answer as lowercase to avoid miscasing
     
     match userAction:
-        case 'web' | 'spiderman':
+        case 'web' | 'spiderman' | 'birds' | 'bird':
             delay = 0
             random.shuffle(names)
 
@@ -157,6 +180,8 @@ while True:
                         name_web(r)
                     case 'spiderman':
                         name_spiderman(r)
+                    case 'birds' | 'bird':
+                        name_birds(r)
 
                 time.sleep(delay)
                 delay = delay + 0.1 # delay increases every time
@@ -170,6 +195,8 @@ while True:
                     name_web(r, True)
                 case 'spiderman':
                     name_spiderman(r, True)
+                case 'birds' | 'bird':
+                    name_birds(r, True)
 
             time.sleep(0.8)
 
@@ -182,6 +209,8 @@ while True:
                     print('| ' + Fore.GREEN + chosenName + Fore.YELLOW + ' |')
                 case 'spiderman':
                     print('| ' + Fore.MAGENTA + chosenName + Fore.YELLOW + ' |')
+                case 'birds' | 'bird':
+                    print('| ' + Fore.RED + chosenName + Fore.YELLOW + ' |')
             print('|~' + ('~' * len(chosenName)) + '~|')
             print('')
             input('~~> ')
