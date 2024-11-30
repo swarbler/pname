@@ -86,7 +86,7 @@ def name_spiderman(r1, last=False):
     if last:
         print('`---"   `.;  `.\' -. `."-.               ' + Fore.MAGENTA + names[r1][:30] + Fore.RED)
     else:
-        print('`---"   `.;  `.\' -. `."-.               ' + Fore.CYAN + names[r1][:30] + Fore.RED)
+        print('`---"   `.;  `.\' -. `."-.               ' + Fore.GREEN + names[r1][:30] + Fore.RED)
     print('               `---\\  `. "-.  ____                                         ')
     print('\\                   \\   "-._`"    `.                                       ')
     print('``.-,                `.     `._     \\                      _.-.            ')
