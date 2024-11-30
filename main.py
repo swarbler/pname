@@ -48,18 +48,18 @@ def name_web(selectedNumber, last=False):
         # checks whether it is at the beginning of the line
         if i % 3 == 0: 
             start = random.randint(1, spacingMax)
-            print(Fore.YELLOW + '~' * start, end='')
+            print(Fore.BLUE + '~' * start, end='')
 
         nLength = len(names[i])
 
         # UPPER CASE if selected, lower case if not
         if i == selectedNumber:
             if last:
-                print(Fore.CYAN + names[i][:nLengthMax].upper() + Fore.YELLOW, end='')
+                print(Fore.GREEN + names[i][:nLengthMax].upper() + Fore.BLUE, end='')
 
                 chosenName = names[i] # sets chosen name to selected name
             else:
-                print(Fore.RED + names[i][:nLengthMax].upper() + Fore.YELLOW, end='')
+                print(Fore.RED + names[i][:nLengthMax].upper() + Fore.BLUE, end='')
         else:
             print(names[i][:nLengthMax].lower(), end='')
 
@@ -72,7 +72,7 @@ def name_web(selectedNumber, last=False):
             print('~' * (spacingMax - start))
 
 def name_spiderman(r1, last=False):
-    """creates name web"""
+    """creates spiderman"""
     global chosenName
 
     r2, r3, r4, r5 = random.randint(0, len(names) - 1), random.randint(0, len(names) - 1), random.randint(0, len(names) - 1), random.randint(0, len(names)- 1)
@@ -178,7 +178,7 @@ while True:
             print('|~' + ('~' * len(chosenName)) + '~|')
             match userAction:
                 case 'web':
-                    print('| ' + Fore.CYAN + chosenName + Fore.YELLOW + ' |')
+                    print('| ' + Fore.GREEN + chosenName + Fore.YELLOW + ' |')
                 case 'spiderman':
                     print('| ' + Fore.MAGENTA + chosenName + Fore.YELLOW + ' |')
             print('|~' + ('~' * len(chosenName)) + '~|')
