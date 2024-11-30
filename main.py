@@ -55,11 +55,11 @@ def name_web(selectedNumber, last=False):
         # UPPER CASE if selected, lower case if not
         if i == selectedNumber:
             if last:
-                print(Fore.GREEN + names[i][:nLengthMax].upper() + Fore.BLUE, end='')
+                print(Fore.MAGENTA + names[i][:nLengthMax].upper() + Fore.BLUE, end='')
 
                 chosenName = names[i] # sets chosen name to selected name
             else:
-                print(Fore.RED + names[i][:nLengthMax].upper() + Fore.BLUE, end='')
+                print(Fore.GREEN + names[i][:nLengthMax].upper() + Fore.BLUE, end='')
         else:
             print(names[i][:nLengthMax].lower(), end='')
 
@@ -131,10 +131,10 @@ def name_birds(selectedNumber, last=False):
     print('   (                          \\\\')
     if last:
         print('  `-`-.               \\\\      (->')
-        print('  \'( - >              (->     //\\      ' + Fore.RED + names[selectedNumber] + Fore.CYAN)
+        print('  \'( - >              (->     //\\      ' + Fore.RED + names[selectedNumber][:20] + Fore.CYAN)
     else:
         print('  `-`-.               \\\\      (o>')
-        print('  \'( O >              (o>     //\\      ' + Fore.GREEN + names[selectedNumber] + Fore.CYAN)
+        print('  \'( O >              (o>     //\\      ' + Fore.GREEN + names[selectedNumber][:20] + Fore.CYAN)
     print('   _) (           ____(()_____V_/_____')
     print('  /    )              ||      ||               ,_,')
     if last:
@@ -148,18 +148,41 @@ def name_birds(selectedNumber, last=False):
         chosenName = names[selectedNumber]
 
 def name_tv(selectedNumber, last=False):
+    global chosenName
+
     print(Fore.BLACK, end='')
     print(' _____________________     ')
     print('|,----------------.  |\\    ')
     print('||                 |=| |   ')
     if last:
-        print('|| ' + Fore.MAGENTA + names[selectedNumber][:14] + ' ' * (14 - len(names[selectedNumber])) + Fore.BLACK + ' || | |   ')
+        print('|| ' + Fore.MAGENTA + names[selectedNumber][:14] + ' ' * (14 - len(names[selectedNumber][:14])) + Fore.BLACK + ' || | |   ')
     else:
-        print('|| ' + Fore.BLUE + names[selectedNumber][:14] + ' ' * (14 - len(names[selectedNumber])) + Fore.BLACK + ' || | |   ')
+        print('|| ' + Fore.BLUE + names[selectedNumber][:14] + ' ' * (14 - len(names[selectedNumber][:14])) + Fore.BLACK + ' || | |   ')
     print('||             . _o| | | __')
     print('|`-----------------\' |/ /~/')
     print(' ~~~~~~~~~~~~~~~~~~~~~ / / ')
     print('                       ~~  ')
+
+    if last:
+        chosenName = names[selectedNumber]
+
+def name_calc(selectedNumber, last=False):
+    global chosenName
+
+    print(Fore.BLACK, end='')
+    print(' __________ ')
+    print('| ________ |')
+    if last:
+        print('||' + Fore.MAGENTA + names[selectedNumber][:8] + ' ' * (8 - len(names[selectedNumber][:8])) + Fore.BLACK + '||')
+    else:
+        print('||' + Fore.GREEN + names[selectedNumber][:8] + ' ' * (8 - len(names[selectedNumber][:8])) + Fore.BLACK + '||')
+    print('|""""""""""|')
+    print('|[M|#|C][-]|')
+    print('|[7|8|9][+]|')
+    print('|[4|5|6][x]|')
+    print('|[1|2|3][%]|')
+    print('|[.|O|:][=]|')
+    print('"----------"  hjw')
 
     if last:
         chosenName = names[selectedNumber]
@@ -182,12 +205,13 @@ while True:
     print('~ spiderman')
     print('~ birds')
     print('~ television')
+    print('~ calculator')
     print('~ quit')
     print('')
     userAction = input('~~> ').lower() # sets answer as lowercase to avoid miscasing
     
     match userAction:
-        case 'web' | 'spiderman' | 'birds' | 'bird' | 'tv' | 'television':
+        case 'web' | 'spiderman' | 'birds' | 'bird' | 'tv' | 'television' | 'calc' | 'calculator':
             delay = 0
             random.shuffle(names)
 
@@ -203,6 +227,8 @@ while True:
                         name_birds(r)
                     case 'tv' | 'television':
                         name_tv(r)
+                    case 'calc' | 'calculator':
+                        name_calc(r)
 
                 time.sleep(delay)
                 delay = delay + 0.1 # delay increases every time
@@ -220,6 +246,8 @@ while True:
                     name_birds(r, True)
                 case 'tv' | 'television':
                     name_tv(r, True)
+                case 'calc' | 'calculator':
+                    name_calc(r, True)
 
             time.sleep(0.8)
 
@@ -227,13 +255,7 @@ while True:
 
             print(Fore.YELLOW, end='')
             print('|~' + ('~' * len(chosenName)) + '~|')
-            match userAction:
-                case 'web':
-                    print('| ' + Fore.GREEN + chosenName + Fore.YELLOW + ' |')
-                case 'spiderman' | 'tv' | 'television':
-                    print('| ' + Fore.MAGENTA + chosenName + Fore.YELLOW + ' |')
-                case 'birds' | 'bird':
-                    print('| ' + Fore.RED + chosenName + Fore.YELLOW + ' |')
+            print('| ' + Fore.MAGENTA + chosenName + Fore.YELLOW + ' |')
             print('|~' + ('~' * len(chosenName)) + '~|')
             print('')
             input('~~> ')
