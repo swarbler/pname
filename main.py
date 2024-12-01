@@ -75,7 +75,7 @@ def name_spiderman(r1, last=False):
     """creates spiderman"""
     global chosenName
 
-    r2, r3, r4, r5 = random.randrange(0, len(names)), random.randrange(0, len(names)), random.randrange(0, len(names)), random.randint(0, len(names)- 1)
+    r2, r3, r4, r5 = random.randrange(0, len(names)), random.randrange(0, len(names)), random.randrange(0, len(names)), random.randrange(0, len(names))
 
     print(Fore.RED, end='')
     print('  _                                                                        ')
@@ -125,6 +125,7 @@ def name_spiderman(r1, last=False):
         chosenName = names[r1]
 
 def name_birds(selectedNumber, last=False):
+    """creates birds"""
     global chosenName
 
     print(Fore.CYAN, end='')
@@ -148,6 +149,7 @@ def name_birds(selectedNumber, last=False):
         chosenName = names[selectedNumber]
 
 def name_tv(selectedNumber, last=False):
+    """creates tv"""
     global chosenName
 
     print(Fore.GREEN, end='')
@@ -167,6 +169,7 @@ def name_tv(selectedNumber, last=False):
         chosenName = names[selectedNumber]
 
 def name_calc(selectedNumber, last=False):
+    """creates calculator"""
     global chosenName
 
     print(Fore.GREEN, end='')
@@ -187,6 +190,93 @@ def name_calc(selectedNumber, last=False):
     if last:
         chosenName = names[selectedNumber]
 
+def name_golf(r1, stage=0, last=False):
+    """golf animation"""
+    global chosenName
+
+    r2, r3, r4 = random.randrange(0, len(names)), random.randrange(0, len(names)), random.randrange(0, len(names))
+
+    rselect = random.randrange(0, 4)
+
+    print(Fore.GREEN, end='')
+    
+    # first name
+    if stage == 5 or stage == 6:
+        # golf ball on sixth and seventh turn
+        print('     \'\                   o  .     ' + Fore.BLUE + names[r1][:16] + ' ' * (16 - len(names[r1][:16])) + Fore.GREEN + '   |>18>>  ')
+    elif stage == 7:
+        # golf ball on eight turn
+        print('     \'\                   .  o     ' + Fore.BLUE + names[r1][:16] + ' ' * (16 - len(names[r1][:16])) + Fore.GREEN + '   |>18>>  ')
+    elif last: # last turn
+        if rselect == 0: # if first name is selected
+            print('     \'\                   .  .     ' + Fore.MAGENTA + names[r1][:16] + ' ' * (16 - len(names[r1][:16])) + Fore.GREEN + '   |>18>>  ')
+        else:
+            # do not display selected name if rselect is not 0
+            match rselect:
+                case 1: print('     \'\                   .  .     ' + Fore.BLUE + names[r2][:16] + ' ' * (16 - len(names[r2][:16])) + Fore.GREEN + '   |>18>>  ')
+                case 2: print('     \'\                   .  .     ' + Fore.BLUE + names[r3][:16] + ' ' * (16 - len(names[r3][:16])) + Fore.GREEN + '   |>18>>  ')
+                case 3: print('     \'\                   .  .     ' + Fore.BLUE + names[r4][:16] + ' ' * (16 - len(names[r4][:16])) + Fore.GREEN + '   |>18>>  ')
+    else:
+        print('     \'\                   .  .     ' + Fore.BLUE + names[r1][:16] + ' ' * (16 - len(names[r1][:16])) + Fore.GREEN + '   |>18>>  ')
+    
+    # second name
+    if stage == 3 or stage == 4:
+        # golf ball on fourth and fifth turn
+        print('       \\              o         \' .   ' + Fore.BLUE + ' ' * (12 - len(names[r2][:12])) + names[r2][:12] + Fore.GREEN + '    |       ')
+    elif stage == 8:
+        # golf ball on third last turn
+        print('       \\              .         \' o   ' + Fore.BLUE + ' ' * (12 - len(names[r2][:12])) + names[r2][:12] + Fore.GREEN + '    |       ')
+    else:
+        if last and rselect == 1: # if second name is selected on last turn
+            # displays selected name if rselect is 1
+            print('       \\              .         \' .   ' + Fore.MAGENTA + ' ' * (12 - len(names[r1][:12])) + names[r1][:12] + Fore.GREEN + '    |       ')
+        else:
+            # displays non-selected name if rselect is not 1
+            print('       \\              .         \' .   ' + Fore.BLUE + ' ' * (12 - len(names[r2][:12])) + names[r2][:12] + Fore.GREEN + '    |       ')
+    
+    if stage == -1:
+        # golfball becomes magenta on last turn
+        print('      O>>         .                 \'' + Fore.MAGENTA + 'o' + Fore.GREEN + '                |       ')
+    elif stage == 9:
+        # golfball on second last turn
+        print('      O>>         .                 \'o                |       ')
+    elif stage == 2:
+        # golfball on third turn
+        print('      O>>         o                 \'.                |       ')
+    else:
+        print('      O>>         .                 \'.                |       ')
+    
+    # third name
+    if stage == 1:
+        # golfball on the second turn
+        print('       \\       o     ' + Fore.BLUE + names[r3][:30] + ' ' * (30 - len(names[r3][:30])) + Fore.GREEN + '   |       ')
+    else:
+        if last and rselect == 2: # if third name is selected on last turn
+            # displays selected name if rselect is 2
+            print('       \\       .     ' + Fore.MAGENTA + names[r1][:30] + ' ' * (30 - len(names[r1][:30])) + Fore.GREEN + '   |       ')
+        else:
+            # displays non-selected name if rselect is not 2
+            print('       \\       .     ' + Fore.BLUE + names[r3][:30] + ' ' * (30 - len(names[r3][:30])) + Fore.GREEN + '   |       ')
+    
+    if stage == 0:
+        # on the first turn, golfball is at the lowest point
+        print('       /\\    o                                        |       ')
+    else:
+        print('       /\\    .                                        |       ')
+    
+    # fourth name name
+    if last and rselect == 3: # if fourth name is selected on last turn
+        # displays selected name if rselect is 3
+        print('      / /  .\'               ' + Fore.MAGENTA + names[r1][:24] + ' ' * (24 - len(names[r1][:24])) + Fore.GREEN + '  |       ')
+    else:
+        # displays non-selected name if rselect not is 3
+        print('      / /  .\'               ' + Fore.BLUE + names[r4][:24] + ' ' * (24 - len(names[r4][:24])) + Fore.GREEN + '  |       ')
+    
+    print('jgs^^^^^^^`^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+
+    if last:
+        chosenName = names[r1]
+
 
 #* program *#
 while True:
@@ -206,12 +296,13 @@ while True:
     print('~ birds')
     print('~ television')
     print('~ calculator')
+    print('~ golf')
     print('~ quit')
     print('')
     userAction = input('~~> ').lower() # sets answer as lowercase to avoid miscasing
     
     match userAction:
-        case 'web' | 'spiderman' | 'birds' | 'bird' | 'tv' | 'television' | 'calc' | 'calculator':
+        case 'web' | 'spiderman' | 'birds' | 'bird' | 'tv' | 'television' | 'calc' | 'calculator' | 'golf':
             delay = 0
             random.shuffle(names)
 
@@ -229,6 +320,8 @@ while True:
                         name_tv(r)
                     case 'calc' | 'calculator':
                         name_calc(r)
+                    case 'golf':
+                        name_golf(r, i)
 
                 time.sleep(delay)
                 delay = delay + 0.1 # delay increases every time
@@ -248,6 +341,8 @@ while True:
                     name_tv(r, True)
                 case 'calc' | 'calculator':
                     name_calc(r, True)
+                case 'golf':
+                    name_golf(r, -1, True)
 
             time.sleep(0.8)
 
