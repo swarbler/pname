@@ -308,27 +308,27 @@ def name_reaper(r1, last=False):
         print('         ;  |-;| /_|        ' + Fore.MAGENTA + names[r1][:30] + Fore.RED)
     else:
         print('         ;  |-;| /_|        ' + Fore.BLUE + names[r2][:30] + Fore.RED)
-    if last and rselect == 1:
+    if last and rselect == 2:
         print('        / \\_| |/ \\ |        ' + Fore.MAGENTA + names[r1][:30] + Fore.RED)
     else:
         print('        / \\_| |/ \\ |        ' + Fore.BLUE + names[r3][:30] + Fore.RED)
-    if last and rselect == 1:
+    if last and rselect == 3:
         print('       /      \\/\\( |        ' + Fore.MAGENTA + names[r1][:30] + Fore.RED)
     else:
         print('       /      \\/\\( |        ' + Fore.BLUE + names[r4][:30] + Fore.RED)
-    if last and rselect == 1:
+    if last and rselect == 4:
         print('       |   /  |` ) |        ' + Fore.MAGENTA + names[r1][:30] + Fore.RED)
     else:
         print('       |   /  |` ) |        ' + Fore.BLUE + names[r5][:30] + Fore.RED)
-    if last and rselect == 1:
+    if last and rselect == 5:
         print('       /   \\ _/    |        ' + Fore.MAGENTA + names[r1][:30] + Fore.RED)
     else:
         print('       /   \\ _/    |        ' + Fore.BLUE + names[r6][:30] + Fore.RED)
-    if last and rselect == 1:
+    if last and rselect == 6:
         print('      /--._/  \\    |        ' + Fore.MAGENTA + names[r1][:30] + Fore.RED)
     else:
         print('      /--._/  \\    |        ' + Fore.BLUE + names[r7][:30] + Fore.RED)
-    if last and rselect == 1:
+    if last and rselect == 7:
         print('      `/|)    |    /        ' + Fore.MAGENTA + names[r1][:30] + Fore.RED)
     else:
         print('      `/|)    |    /        ' + Fore.BLUE + names[r8][:30] + Fore.RED)
