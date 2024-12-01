@@ -413,7 +413,7 @@ while True:
                 case 'reaper' | 'death':
                     name_reaper(r, True)
 
-            time.sleep(0.8)
+            time.sleep(1.5)
 
             print('\033c', end='') # clear terminal
 
