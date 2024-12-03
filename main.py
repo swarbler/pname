@@ -394,9 +394,9 @@ def name_flowers(r1, last=False):
         print(((s3 * 3) * ' ') + names[r5])
     
     print('')
-    print('            ' + Fore.BLUE + 'wWWWw' + Fore.GREEN + '               ' + Fore.BLUE + 'wWWWw' + Fore.GREEN + '            ')
-    print('      ' + Fore.RED + 'vVVVv' + Fore.GREEN + ' (___) ' + Fore.BLUE + 'wWWWw' + Fore.GREEN + '         (___)  ' + Fore.RED + 'vVVVv' + Fore.GREEN + '     ')
-    print('      (___)  ~Y~  (___)  ' + Fore.RED + 'vVVVv' + Fore.GREEN + '   ~Y~   (___)     ')
+    print('            ' + Fore.YELLOW + 'wWWWw' + Fore.GREEN + '               ' + Fore.CYAN + 'wWWWw' + Fore.GREEN + '            ')
+    print('      ' + Fore.RED + 'vVVVv' + Fore.GREEN + ' (___) ' + Fore.BLUE + 'wWWWw' + Fore.GREEN + '         (___)  ' + Fore.BLUE + 'vVVVv' + Fore.GREEN + '     ')
+    print('      (___)  ~Y~  (___)  ' + Fore.MAGENTA + 'vVVVv' + Fore.GREEN + '   ~Y~   (___)     ')
     print('       ~Y~   \\|    ~Y~   (___)    |/    ~Y~      ')
     print('       \\|   \\ |/   \\| /  \\~Y~/   \\|    \\ |/      ')
     print('      \\\\|// \\\\|// \\\\|/// \\\\|//  \\\\|// \\\\\\|///    ')
