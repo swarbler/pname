@@ -6,9 +6,9 @@ with open('list.txt', 'r') as l:
     names = l.read().split()
 
 chosenName = ''
-spacingMax = 5
-nLengthMax = 20
-trickleTime = 10
+TRICKLE_TIME = 10
+
+OPTIONS = ['web', 'spiderman', 'birds', 'bird', 'tv', 'television', 'calc', 'calculator', 'golf', 'reaper', 'death', 'flowers', 'flower']
 
 
 #* declaring functions *#
@@ -47,7 +47,7 @@ def name_web(selectedNumber, last=False):
     for i in range(len(names) - 1):
         # checks whether it is at the beginning of the line
         if i % 3 == 0: 
-            start = random.randint(1, spacingMax)
+            start = random.randint(1, 5)
             print(Fore.BLUE + '~' * start, end='')
 
         nLength = len(names[i])
@@ -55,21 +55,21 @@ def name_web(selectedNumber, last=False):
         # UPPER CASE if selected, lower case if not
         if i == selectedNumber:
             if last:
-                print(Fore.MAGENTA + names[i][:nLengthMax].upper() + Fore.BLUE, end='')
+                print(Fore.MAGENTA + names[i][:20].upper() + Fore.BLUE, end='')
 
                 chosenName = names[i] # sets chosen name to selected name
             else:
-                print(Fore.GREEN + names[i][:nLengthMax].upper() + Fore.BLUE, end='')
+                print(Fore.GREEN + names[i][:20].upper() + Fore.BLUE, end='')
         else:
-            print(names[i][:nLengthMax].lower(), end='')
+            print(names[i][:20].lower(), end='')
 
         # buffer text
-        print('~' * (nLengthMax - nLength), end='')
+        print('~' * (20 - nLength), end='')
         print('~' * 5, end='')
         
         # checks whether it is at the end of the line
         if i % 3 == 2: 
-            print('~' * (spacingMax - start))
+            print('~' * (5 - start))
 
 def name_spiderman(r1, last=False):
     """creates spiderman"""
@@ -340,6 +340,70 @@ def name_reaper(r1, last=False):
     if last:
         chosenName = names[r1]
 
+def name_flowers(r1, last=False):
+    global chosenName
+
+    r2, r3, r4, r5 = random.randrange(0, len(names)), random.randrange(0, len(names)), random.randrange(0, len(names)), random.randrange(0, len(names))
+
+    rselect = random.randrange(0, 5)
+
+    s1, s2, s3 = random.randrange (5, 10), random.randrange (5, 10), random.randrange (5, 10)
+
+    print(Fore.CYAN)
+    # line 1
+    if rselect == 0: # if first name is selected
+        if last:
+            print((s1 * ' ') + Fore.MAGENTA + names[r1] + Fore.CYAN + ((s1 * 2) * ' ') + names[r2])
+        else:
+            print((s1 * ' ') + Fore.GREEN + names[r1] + Fore.CYAN + ((s1 * 2) * ' ') + names[r2])
+    elif rselect == 1: # if second name is selected
+        if last:
+            print((s1 * ' ') + names[r2] + ((s1 * 2) * ' ') + Fore.MAGENTA + names[r1] + Fore.CYAN)
+        else:
+            print((s1 * ' ') + names[r2] + ((s1 * 2) * ' ') + Fore.GREEN + names[r1] + Fore.CYAN)
+    else:
+        if last:
+            match rselect: # don't show selected number if first name is not selected
+                case 2: print((s1 * ' ') + names[r3] + ((s1 * 2) * ' ') + names[r2])
+                case 3: print((s1 * ' ') + names[r4] + ((s1 * 2) * ' ') + names[r2])
+                case 4: print((s1 * ' ') + names[r5] + ((s1 * 2) * ' ') + names[r2])
+        else:
+            print((s1 * ' ') + names[r1] + ((s1 * 2) * ' ') + names[r2])
+    
+    # line 2
+    if rselect == 2: # if third name is selected
+        if last:
+            print((s2 * ' ') + Fore.MAGENTA + names[r1] + Fore.CYAN + ((s1 * 2) * ' ') + names[r4])    
+        else:
+            print((s2 * ' ') + Fore.GREEN + names[r3] + Fore.CYAN + ((s1 * 2) * ' ') + names[r4])
+    elif rselect == 3: # if fourth name is selected
+        if last:
+            print((s2 * ' ') + names[r1] + ((s2 * 2) * ' ') + Fore.MAGENTA + names[r4] + Fore.CYAN)
+        else:
+            print((s2 * ' ') + names[r3] + ((s2 * 2) * ' ') + Fore.GREEN + names[r4] + Fore.CYAN)
+    else:
+        print((s2 * ' ') + names[r3] + ((s2 * 2) * ' ') + names[r4])
+    
+    # line 3
+    if rselect == 4: # if last name is selected
+        if last:
+            print(((s3 * 3) * ' ') + Fore.MAGENTA + names[r1] + Fore.CYAN)
+        else:
+            print(((s3 * 3) * ' ') + Fore.GREEN + names[r5] + Fore.CYAN)
+    else:
+        print(((s3 * 3) * ' ') + names[r5])
+    
+    print('')
+    print('            ' + Fore.BLUE + 'wWWWw' + Fore.GREEN + '               ' + Fore.BLUE + 'wWWWw' + Fore.GREEN + '            ')
+    print('      ' + Fore.RED + 'vVVVv' + Fore.GREEN + ' (___) ' + Fore.BLUE + 'wWWWw' + Fore.GREEN + '         (___)  ' + Fore.RED + 'vVVVv' + Fore.GREEN + '     ')
+    print('      (___)  ~Y~  (___)  ' + Fore.RED + 'vVVVv' + Fore.GREEN + '   ~Y~   (___)     ')
+    print('       ~Y~   \\|    ~Y~   (___)    |/    ~Y~      ')
+    print('       \\|   \\ |/   \\| /  \\~Y~/   \\|    \\ |/      ')
+    print('      \\\\|// \\\\|// \\\\|/// \\\\|//  \\\\|// \\\\\\|///    ')
+    print('jgs^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+    
+    if last:
+        chosenName = names[r1]
 
 
 #* program *#
@@ -363,69 +427,57 @@ while True:
     print(Fore.MAGENTA + '~ calculator')
     print(Fore.GREEN + '~ golf')
     print(Fore.RED + '~ quit')
+    print(Fore.BLUE + '~ flowers')
     print(Fore.YELLOW)
     userAction = input('~~> ').lower() # sets answer as lowercase to avoid miscasing
     
-    match userAction:
-        case 'web' | 'spiderman' | 'birds' | 'bird' | 'tv' | 'television' | 'calc' | 'calculator' | 'golf' | 'reaper' | 'death':
-            delay = 0
-            random.shuffle(names)
+    if userAction in OPTIONS:
+        delay = 0
+        random.shuffle(names)
 
-            for i in range(trickleTime):
-                r = random.randrange(0, len(names))
-                
-                match userAction:
-                    case 'web':
-                        name_web(r)
-                    case 'spiderman':
-                        name_spiderman(r)
-                    case 'birds' | 'bird':
-                        name_birds(r)
-                    case 'tv' | 'television':
-                        name_tv(r)
-                    case 'calc' | 'calculator':
-                        name_calc(r)
-                    case 'golf':
-                        name_golf(r, i)
-                    case 'reaper' | 'death':
-                        name_reaper(r)
-
-                time.sleep(delay)
-                delay = delay + 0.1 # delay increases every time
-
-                print('\033c', end='') # clear terminal
+        for i in range(TRICKLE_TIME):
+            r = random.randrange(0, len(names))
             
-            r = random.randrange(0, len(names))    
-
             match userAction:
-                case 'web':
-                    name_web(r, True)
-                case 'spiderman':
-                    name_spiderman(r, True)
-                case 'birds' | 'bird':
-                    name_birds(r, True)
-                case 'tv' | 'television':
-                    name_tv(r, True)
-                case 'calc' | 'calculator':
-                    name_calc(r, True)
-                case 'golf':
-                    name_golf(r, -1, True)
-                case 'reaper' | 'death':
-                    name_reaper(r, True)
+                case 'web': name_web(r)
+                case 'spiderman': name_spiderman(r)
+                case 'birds' | 'bird': name_birds(r)
+                case 'tv' | 'television': name_tv(r)
+                case 'calc' | 'calculator': name_calc(r)
+                case 'golf': name_golf(r, i)
+                case 'reaper' | 'death': name_reaper(r)
+                case 'flowers' | 'flower': name_flowers(r)
 
-            time.sleep(1.5)
+            time.sleep(delay)
+            delay = delay + 0.1 # delay increases every time
 
             print('\033c', end='') # clear terminal
+        
+        r = random.randrange(0, len(names))    
 
-            print(Fore.YELLOW, end='')
-            print('|~' + ('~' * len(chosenName)) + '~|')
-            print('| ' + Fore.MAGENTA + chosenName + Fore.YELLOW + ' |')
-            print('|~' + ('~' * len(chosenName)) + '~|')
-            print('')
-            input('~~> ')
+        match userAction:
+            case 'web': name_web(r, True)
+            case 'spiderman': name_spiderman(r, True)
+            case 'birds' | 'bird': name_birds(r, True)
+            case 'tv' | 'television': name_tv(r, True)
+            case 'calc' | 'calculator': name_calc(r, True)
+            case 'golf': name_golf(r, -1, True)
+            case 'reaper' | 'death': name_reaper(r, True)
+            case 'flowers' | 'flower': name_flowers(r, True)
 
-            print('\033c', end='') # clear terminal
-        case 'quit' | 'q':
-            sys.exit(0)
-        case _:
-            call_error(userAction)
+        time.sleep(1.5)
+
+        print('\033c', end='') # clear terminal
+
+        print(Fore.YELLOW, end='')
+        print('|~' + ('~' * len(chosenName)) + '~|')
+        print('| ' + Fore.MAGENTA + chosenName + Fore.YELLOW + ' |')
+        print('|~' + ('~' * len(chosenName)) + '~|')
+        print('')
+        input('~~> ')
+
+        print('\033c', end='') # clear terminal
+    elif userAction ==  'quit' or userAction == 'q':
+        sys.exit(0)
+    else:
+        call_error(userAction)
