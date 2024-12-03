@@ -47,7 +47,7 @@ def name_web(selectedNumber, last=False):
     for i in range(len(names) - 1):
         # checks whether it is at the beginning of the line
         if i % 3 == 0: 
-            start = random.randint(1, 5)
+            start = random.randrange(5) + 1
             print(Fore.BLUE + '~' * start, end='')
 
         nLength = len(names[i])
