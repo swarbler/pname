@@ -75,7 +75,7 @@ def name_spiderman(r1, last=False):
     """creates spiderman"""
     global chosenName
 
-    r2, r3, r4, r5 = random.randrange(0, len(names)), random.randrange(0, len(names)), random.randrange(0, len(names)), random.randrange(0, len(names))
+    r2, r3, r4, r5 = random.randrange(len(names)), random.randrange(len(names)), random.randrange(len(names)), random.randrange(len(names))
 
     print(Fore.RED, end='')
     print('  _                                                                        ')
@@ -194,9 +194,9 @@ def name_golf(r1, stage=0, last=False):
     """golf animation"""
     global chosenName
 
-    r2, r3, r4 = random.randrange(0, len(names)), random.randrange(0, len(names)), random.randrange(0, len(names))
+    r2, r3, r4 = random.randrange(len(names)), random.randrange(len(names)), random.randrange(len(names))
 
-    rselect = random.randrange(0, 4)
+    rselect = random.randrange(4)
 
     print(Fore.GREEN, end='')
     
@@ -280,9 +280,9 @@ def name_golf(r1, stage=0, last=False):
 def name_reaper(r1, last=False):
     global chosenName
 
-    r2, r3, r4, r5, r6, r7, r8 = random.randrange(0, len(names)), random.randrange(0, len(names)), random.randrange(0, len(names)), random.randrange(0, len(names)), random.randrange(0, len(names)), random.randrange(0, len(names)), random.randrange(0, len(names))
+    r2, r3, r4, r5, r6, r7, r8 = random.randrange(len(names)), random.randrange(len(names)), random.randrange(len(names)), random.randrange(len(names)), random.randrange(len(names)), random.randrange(len(names)), random.randrange(len(names))
 
-    rselect = random.randrange(0, 8)
+    rselect = random.randrange(8)
 
     print(Fore.RED, end='')
 
@@ -343,11 +343,11 @@ def name_reaper(r1, last=False):
 def name_flowers(r1, last=False):
     global chosenName
 
-    r2, r3, r4, r5 = random.randrange(0, len(names)), random.randrange(0, len(names)), random.randrange(0, len(names)), random.randrange(0, len(names))
+    r2, r3, r4, r5 = random.randrange(len(names)), random.randrange(len(names)), random.randrange(len(names)), random.randrange(len(names))
 
-    rselect = random.randrange(0, 5)
+    rselect = random.randrange(5)
 
-    s1, s2, s3 = random.randrange (5, 10), random.randrange (5, 10), random.randrange (5, 10)
+    s1, s2, s3 = random.randrange(5, 10), random.randrange(5, 10), random.randrange(5, 10)
 
     print(Fore.CYAN)
     # line 1
@@ -436,7 +436,7 @@ while True:
         random.shuffle(names)
 
         for i in range(TRICKLE_TIME):
-            r = random.randrange(0, len(names))
+            r = random.randrange(len(names))
             
             match userAction:
                 case 'web': name_web(r)
@@ -453,7 +453,7 @@ while True:
 
             print('\033c', end='') # clear terminal
         
-        r = random.randrange(0, len(names))    
+        r = random.randrange(len(names))    
 
         match userAction:
             case 'web': name_web(r, True)
