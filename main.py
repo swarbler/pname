@@ -11,7 +11,7 @@ TRICKLE_TIME = 10
 MINIMUM_PAIR_TIME = 0.2
 
 OPTIONS = ['web', 'spiderman', 'birds', 'bird', 'tv', 'television', 'calc', 'calculator', 'golf', 'reaper', 'death', 'flowers', 'flower']
-PAIR_OPTIONS = ['branches', 'branch', 'waterfall']
+PAIR_OPTIONS = ['branches', 'branch', 'waterfall', 'caves', 'cave']
 SET_OPTIONS = ['set list file', 'set list', 'set file', 'list file', 'list', 'file']
 
 def setList():
@@ -422,18 +422,6 @@ def name_flowers(r1, last=False):
         chosenName = names[r1]
 
 # selecting pairs
-def pair_base():
-    """creates tree branch"""
-    print(Fore.GREEN, end='')
-
-    for i in range(1, len(names), 2): # iterates over names, stepping by 2
-        print(names[i - 1] + ' and ' + names[i])
-
-        time.sleep(random.random() + MINIMUM_PAIR_TIME)
-
-    if len(names) % 2 == 1: # if amount of names is an odd number, print odd one out
-        print(names[-1])
-
 def pair_branch():
     """creates tree branch"""
     print(Fore.GREEN, end='')
@@ -468,6 +456,7 @@ def pair_branch():
     print('...;%@@@@@%%:;;;;,..    Gilo97')
 
 def pair_waterfall():
+    """creates waterfall"""
     print(Fore.BLUE, end='')
 
     # top of waterfall
@@ -494,6 +483,65 @@ def pair_waterfall():
     else:
         print('      --                  --       --   /    \'  . `   ` \\    --    ')
     print('---     AMC    ---          ---       /  \'                \\ ---    ')
+
+def pair_caves():
+    """creates caves"""
+    print(Fore.MAGENTA, end='')
+
+    # cave top
+    for i in range(random.randrange(1, 4)): # random amount of cave spacing
+        cLeft = random.randrange(1, 80) # random amount of cave walls
+        cRight = 80 - cLeft # amount depends on rLeft
+
+        print(cLeft * '%' + cRight * 'X')
+
+    for i in range(1, len(names), 2): # iterates over names, stepping by 2
+        rLeft = random.randrange(1, 40) # random amount of cave walls
+        rRight = 40 - rLeft # amount depends on rLeft
+
+        textLength = len((names[i - 1] + ' and ' + names[i])[:40]) # find length of both names combined
+
+        # makes sure width of cave is 40
+        # splits spacing equally between left and right
+        spacingLeft = math.floor((40 - textLength) / 2)
+        spacingRight = math.ceil((40 - textLength) / 2)
+
+        # prints line with cave walls, spacing, and names
+        print(rLeft * '%' + spacingLeft * ' ' + (names[i - 1] + ' and ' + names[i])[:40] + spacingRight * ' ' + rRight * 'X')
+
+        # continues cave
+        for i in range(random.randrange(1, 4)): # random amount of cave spacing
+            cLeft = random.randrange(1, 80) # random amount of cave walls
+            cRight = 80 - cLeft # amount depends on rLeft
+
+            print(cLeft * '%' + cRight * 'X')
+
+        time.sleep(random.random() + MINIMUM_PAIR_TIME) # random amount of delay
+
+    if len(names) % 2 == 1: # if amount of names is an odd number, print odd one out
+        rLeft = random.randrange(1, 40)
+        rRight = 40 - rLeft
+
+        textLength = len(names[-1][:40])
+
+        spacingLeft = math.floor((40 - textLength) / 2)
+        spacingRight = math.ceil((40 - textLength) / 2)
+
+        print(rLeft * '%' + spacingLeft * ' ' + names[-1][:40] + spacingRight * ' ' + rRight * 'X')
+
+        # continues cave
+        for i in range(random.randrange(1, 4)): # random amount of cave spacing
+            cLeft = random.randrange(1, 80) # random amount of cave walls
+            cRight = 80 - cLeft # amount depends on rLeft
+
+            print(cLeft * '%' + cRight * 'X')
+    
+    # cave base
+    for i in range(random.randrange(1, 4)): # random amount of cave spacing
+        cLeft = random.randrange(1, 80) # random amount of cave walls
+        cRight = 80 - cLeft # amount depends on rLeft
+
+        print(cLeft * '%' + cRight * 'X')
 
 
 #* program *#
@@ -524,6 +572,7 @@ while True:
     print('select pairs:')
     print(Fore.RED + '~ branch')
     print(Fore.BLUE + '~ waterfall')
+    print(Fore.MAGENTA + '~ caves')
     print(Fore.YELLOW)
     print('adjustments:')
     print(Fore.BLUE + '> set list file (default: list)')
@@ -589,6 +638,7 @@ while True:
         match userAction:
             case 'branches' | 'branch': pair_branch()
             case 'waterfall': pair_waterfall()
+            case 'caves' | 'cave': pair_caves()
         
         print(Fore.YELLOW)
         input('~~> ')
