@@ -22,10 +22,11 @@ You can add names to the list.txt file. For regular use, you can prepare a list 
 - reads a list.txt file
 - displays suspenseful selection animation with fun ASCII art
 - select a different list file (e.g. "year10")
+- ability to select pairs
 
 ### to be added
 
-- ability to select pairs and groups
+- ability to select larger groups
 
 ## Included Animations
 
