@@ -424,6 +424,8 @@ while True:
     print('|    | \\| /~~\\ |  | |___ ')             
     print(Fore.GREEN)
     print('|| made by sbird ||')
+    print(Fore.MAGENTA)
+    print('currently selected list file: ' + chosenListFile + '.txt')
 
     print(Fore.YELLOW)
     print('What would you like to do?')
@@ -447,7 +449,6 @@ while True:
     
     if userAction in OPTIONS:
         delay = 0
-        names = setList()
         random.shuffle(names)
 
         for i in range(TRICKLE_TIME):
@@ -502,10 +503,9 @@ while True:
         try:
             chosenListFile = userFile
             names = setList()
-        except:
-            chosenListFile = 'list'
-            names = setList()
 
+            print('\033c', end='') # clear terminal
+        except:
             call_error(userFile, 'invalid_file')
     elif userAction ==  'quit' or userAction == 'q':
         sys.exit(0)
