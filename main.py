@@ -11,7 +11,7 @@ TRICKLE_TIME = 10
 MINIMUM_PAIR_TIME = 0.2
 
 OPTIONS = ['web', 'spiderman', 'birds', 'bird', 'tv', 'television', 'calc', 'calculator', 'golf', 'reaper', 'death', 'flowers', 'flower']
-PAIR_OPTIONS = ['branches', 'branch']
+PAIR_OPTIONS = ['branches', 'branch', 'waterfall']
 SET_OPTIONS = ['set list file', 'set list', 'set file', 'list file', 'list', 'file']
 
 def setList():
@@ -441,7 +441,7 @@ def pair_branch():
     for i in range(1, len(names), 2): # iterates over names, stepping by 2
         # prints names beside branch
         print('      %@@@@%::;           ;@%%%%%%;\'   ' + names[i - 1][:50]) 
-        print('      %@@@@%::;%@@@o%::%@@%;   ' + names[i][:50])
+        print('      %@@@@%::;%@@@o%::%@@%;   and ' + names[i][:50])
 
         # continues trunk
         print('  `.. %@@@o%::;         ')
@@ -466,6 +466,35 @@ def pair_branch():
     print('     ;%@@@@%::;.              ')
     print('    ;%@@@@%%:;;;.             ')
     print('...;%@@@@@%%:;;;;,..    Gilo97')
+
+def pair_waterfall():
+    print(Fore.BLUE, end='')
+
+    # top of waterfall
+    print('                  _.._                                             ')
+    print('   _________....-~    ~-.______                                    ')
+    print('~~~                            ~~~~-----...___________..--------   ')
+    
+    for i in range(1, len(names), 2): # iterates over names, stepping by 2
+        # prints names beside waterfall
+        print(' ' + ' ' * (36 - len(names[i - 1][:36])) + names[i - 1][:36] + ' and' + '  |   |     |             ')
+        print(' ' + ' ' * (40 - len(names[i][:40])) + names[i][:40] + '  | |   |  ||             ')
+        
+        # continues waterfall
+        print('                                           |  |  |   |             ')
+
+        time.sleep(random.random() + MINIMUM_PAIR_TIME) # random amount of delay
+    
+    # base of waterfall
+    print('                                           |\'. .\' .`.|             ')
+    print('___________________________________________|0oOO0oO0o|____________ ')
+    print(' -          -         -       -      -    / \'  \'. ` ` \\    -    -  ')
+    if len(names) % 2 == 1: # if amount of names is an odd number, print odd one out
+        print(' ' * (25 - len(names[-1][:25])) + names[-1][:25] + ' --   /    \'  . `   ` \\    --    ')
+    else:
+        print('      --                  --       --   /    \'  . `   ` \\    --    ')
+    print('---     AMC    ---          ---       /  \'                \\ ---    ')
+
 
 #* program *#
 while True:
@@ -494,6 +523,7 @@ while True:
     print(Fore.YELLOW)
     print('select pairs:')
     print(Fore.RED + '~ branch')
+    print(Fore.BLUE + '~ waterfall')
     print(Fore.YELLOW)
     print('adjustments:')
     print(Fore.BLUE + '> set list file (default: list)')
@@ -558,6 +588,7 @@ while True:
 
         match userAction:
             case 'branches' | 'branch': pair_branch()
+            case 'waterfall': pair_waterfall()
         
         print(Fore.YELLOW)
         input('~~> ')
