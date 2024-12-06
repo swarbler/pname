@@ -28,7 +28,6 @@ def call_error(param, errorType='none', minR=0, maxR=0):
 
     print('\033c', end='') # clear terminal
 
-    # something went wrong (Fire Font-k)
     print(Fore.RED, end='')
     tprint('something went wrong', 'fire-font-s')
     # print('                           )    )                                           )                                   ')
@@ -546,18 +545,19 @@ def pair_caves():
 
 #* program *#
 while True:
-    # PNAME Stick Letters
     print(Fore.BLUE, end='')
     tprint('pname', 'nancyj')
     # print(' __                  ___ ')
     # print('|__) |\\ |  /\\  |\\/| |__  ')
     # print('|    | \\| /~~\\ |  | |___ ')           
     print(Fore.GREEN + '|| made by sbird ||')
+
     print(Fore.MAGENTA)
     print('currently selected list file: ' + chosenListFile + '.txt')
 
     print(Fore.YELLOW)
     print('What would you like to do?')
+
     print(Fore.YELLOW)
     print('select a single person:')
     print(Fore.BLUE + '~ web')
@@ -568,16 +568,20 @@ while True:
     print(Fore.MAGENTA + '~ calculator')
     print(Fore.GREEN + '~ golf')
     print(Fore.BLUE + '~ flowers')
+
     print(Fore.YELLOW)
     print('select pairs:')
     print(Fore.RED + '~ branch')
     print(Fore.BLUE + '~ waterfall')
     print(Fore.MAGENTA + '~ caves')
+
     print(Fore.YELLOW)
     print('adjustments:')
     print(Fore.BLUE + '> set list file (default: list)')
+
     print(Fore.RED)
     print('~ quit')
+
     print(Fore.YELLOW)
     userAction = input('~~> ').lower() # sets answer as lowercase to avoid miscasing
     
