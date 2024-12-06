@@ -446,6 +446,8 @@ def pair_branch():
         # continues trunk
         print('  `.. %@@@o%::;         ')
         print('     `)@@@o%::;         ')
+        for i in range(random.randrange(1, 4)): # random amount of trunk spacing
+            print('      ;@@@o%::;         ')
 
         time.sleep(random.random() + MINIMUM_PAIR_TIME) # random amount of delay
     
@@ -559,6 +561,8 @@ while True:
         
         print(Fore.YELLOW)
         input('~~> ')
+
+        print('\033c', end='') # clear terminal
     elif userAction in SET_OPTIONS:
         print(Fore.MAGENTA)
         print('enter your desired list file (must be a text file)')
