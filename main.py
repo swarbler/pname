@@ -1,14 +1,21 @@
 import random, time, math, sys
 from colorama import Fore, Back, Style
 
-#* declaring variables *#
-with open('list.txt', 'r') as l:
-    names = l.read().split()
 
+#* declaring variables *#
+chosenListFile = 'list'
 chosenName = ''
+
 TRICKLE_TIME = 10
 
 OPTIONS = ['web', 'spiderman', 'birds', 'bird', 'tv', 'television', 'calc', 'calculator', 'golf', 'reaper', 'death', 'flowers', 'flower']
+SET_OPTIONS = ['set list file', 'set list', 'set file', 'list file', 'list', 'file']
+
+def setList():
+    with open(chosenListFile + '.txt', 'r') as l:
+        return l.read().split()
+
+names = setList()
 
 
 #* declaring functions *#
@@ -33,6 +40,8 @@ def call_error(param, errorType='none', minR=0, maxR=0):
     match errorType:
         case 'does_not_exist':
             print('"' + param + '" does not exist yet. Please try again later.')
+        case 'invalid_file':
+            print('"' + param + '.txt" is not a valid file. Please try again.')
         case _:
             print('"' + param + '" is not a valid input. Please try again.')
     print('')
@@ -418,7 +427,8 @@ while True:
 
     print(Fore.YELLOW)
     print('What would you like to do?')
-    print('')
+    print(Fore.YELLOW)
+    print('select a single person:')
     print(Fore.BLUE + '~ web')
     print(Fore.RED + '~ spiderman')
     print(Fore.GREEN + '~ birds')
@@ -426,13 +436,18 @@ while True:
     print(Fore.RED + '~ reaper')
     print(Fore.MAGENTA + '~ calculator')
     print(Fore.GREEN + '~ golf')
-    print(Fore.RED + '~ quit')
     print(Fore.BLUE + '~ flowers')
+    print(Fore.YELLOW)
+    print('adjustments:')
+    print(Fore.BLUE + '> set list file (default: list)')
+    print(Fore.RED)
+    print('~ quit')
     print(Fore.YELLOW)
     userAction = input('~~> ').lower() # sets answer as lowercase to avoid miscasing
     
     if userAction in OPTIONS:
         delay = 0
+        names = setList()
         random.shuffle(names)
 
         for i in range(TRICKLE_TIME):
@@ -477,6 +492,21 @@ while True:
         input('~~> ')
 
         print('\033c', end='') # clear terminal
+    elif userAction in SET_OPTIONS:
+        print(Fore.MAGENTA)
+        print('enter your desired list file (must be a text file)')
+        print(Fore.RED + ' ! note: do NOT include file extension. also, make sure list file is in the same directory as pyname !')
+        print(Fore.YELLOW)
+        userFile = input('~~> ')
+
+        try:
+            chosenListFile = userFile
+            names = setList()
+        except:
+            chosenListFile = 'list'
+            names = setList()
+
+            call_error(userFile, 'invalid_file')
     elif userAction ==  'quit' or userAction == 'q':
         sys.exit(0)
     else:
