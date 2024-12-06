@@ -439,12 +439,31 @@ def pair_branch():
     print(Fore.GREEN, end='')
 
     for i in range(1, len(names), 2): # iterates over names, stepping by 2
-        print(names[i - 1] + ' and ' + names[i])
+        # prints names beside branch
+        print('      %@@@@%::;           ;@%%%%%%;\'   ' + names[i - 1][:50]) 
+        print('      %@@@@%::;%@@@o%::%@@%;   ' + names[i][:50])
 
-        time.sleep(random.random() + MINIMUM_PAIR_TIME)
+        # continues trunk
+        print('  `.. %@@@o%::;         ')
+        print('     `)@@@o%::;         ')
 
+        time.sleep(random.random() + MINIMUM_PAIR_TIME) # random amount of delay
+    
+    # base of tree
+    print('      %@@%%%::;')
     if len(names) % 2 == 1: # if amount of names is an odd number, print odd one out
-        print(names[-1])
+        print('      %@@@%(o);  . \'   ' + names[-1][:50])
+    else:
+        print('      %@@@%(o);  . \'        ') 
+    
+    # print the rest of the tree
+    print('      %@@@o%;:(.,\'        ') 
+    print('  `.. %@@@o%::;         ')
+    print('     `)@@@o%::;         ')
+    print('     .%@@@@%::;          ')
+    print('     ;%@@@@%::;.              ')
+    print('    ;%@@@@%%:;;;.             ')
+    print('...;%@@@@@%%:;;;;,..    Gilo97')
 
 #* program *#
 while True:

@@ -1,14 +1,16 @@
 # pname
 
+a simple program I made that selects names randomly from a list file
+
 ## What is it?
 
-pname is a program that lets you select a random name from a list with fun ASCII art!
+pname is a text-program that lets you select a random name from a list.txt file with fun ASCII art! It can also be set to read a pre-existing list (e.g. "year10.txt")
 
 ## How to Run 🏃
 
 Download the source code and run the Python code. You can add names to the list.txt file. For regular use, you can prepare a list file, such as "year10.txt", and set that as your list file. You are able to switch between multiple list files. 
 
-note: When creating list files, write each name in a new line. Using spaces means pname will treat it as multiple names instead of one, so try not to use spaces! If you must use spaces, try using "-" or "_" instead. (e.g. "john-smith" or "bob_the_builder")
+> note: When creating list files, write each name in a new line. Using spaces means pname will treat it as multiple names instead of one, so try not to use spaces! If you must use spaces, try using "-" or "_" instead. (e.g. "john-smith" or "bob_the_builder")
 
 ## Feature List 
 
