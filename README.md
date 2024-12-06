@@ -8,7 +8,7 @@ pname is a text-program that lets you select a random name from a list.txt file 
 
 ## How to Run 🏃
 
-You can run revisionio using two methods:
+You can run pyname using two methods:
 
 - Download exe produced by pyinstaller from the releases page
 - Download the source code and run the Python file
