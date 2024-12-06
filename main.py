@@ -1,5 +1,6 @@
 import random, time, math, sys
 from colorama import Fore, Back, Style
+from art import *
 
 
 #* declaring variables *#
@@ -7,8 +8,10 @@ chosenListFile = 'list'
 chosenName = ''
 
 TRICKLE_TIME = 10
+MINIMUM_PAIR_TIME = 0.2
 
 OPTIONS = ['web', 'spiderman', 'birds', 'bird', 'tv', 'television', 'calc', 'calculator', 'golf', 'reaper', 'death', 'flowers', 'flower']
+PAIR_OPTIONS = ['branches', 'branch']
 SET_OPTIONS = ['set list file', 'set list', 'set file', 'list file', 'list', 'file']
 
 def setList():
@@ -27,15 +30,16 @@ def call_error(param, errorType='none', minR=0, maxR=0):
 
     # something went wrong (Fire Font-k)
     print(Fore.RED, end='')
-    print('                           )    )                                           )                                   ')
-    print('             )      (   ( /( ( /( (          (  (    (  (      (         ( /(   (  (    (                (  (   ')
-    print(' (    (     (      ))\\  )\\()))\\()))\\   (     )\\))(   )\\))(    ))\\  (     )\\())  )\\))(   )(    (    (     )\\))(  ')
-    print(' )\\   )\\    )\\  \' /((_)(_))/((_)\\((_)  )\\ ) ((_))\\  ((_)()\\  /((_) )\\ ) (_))/  ((_)()\\ (()\\   )\\   )\\ ) ((_))\\  ')
-    print('((_) ((_) _((_)) (_))  | |_ | |(_)(_) _(_/(  (()(_) _(()((_)(_))  _(_/( | |_   _(()((_) ((_) ((_) _(_/(  (()(_) ')
-    print('(_-</ _ \\| \'  \\()/ -_) |  _|| \' \\ | || \' \\))/ _` |  \\ V  V // -_)| \' \\))|  _|  \\ V  V /| \'_|/ _ \\| \' \\))/ _` |  ')
-    print('/__/\\___/|_|_|_| \\___|  \\__||_||_||_||_||_| \\__, |   \\_/\\_/ \\___||_||_|  \\__|   \\_/\\_/ |_|  \\___/|_||_| \\__, |  ')
-    print('                                            |___/                                                       |___/   ')
-    print('')
+    tprint('something went wrong', 'fire-font-s')
+    # print('                           )    )                                           )                                   ')
+    # print('             )      (   ( /( ( /( (          (  (    (  (      (         ( /(   (  (    (                (  (   ')
+    # print(' (    (     (      ))\\  )\\()))\\()))\\   (     )\\))(   )\\))(    ))\\  (     )\\())  )\\))(   )(    (    (     )\\))(  ')
+    # print(' )\\   )\\    )\\  \' /((_)(_))/((_)\\((_)  )\\ ) ((_))\\  ((_)()\\  /((_) )\\ ) (_))/  ((_)()\\ (()\\   )\\   )\\ ) ((_))\\  ')
+    # print('((_) ((_) _((_)) (_))  | |_ | |(_)(_) _(_/(  (()(_) _(()((_)(_))  _(_/( | |_   _(()((_) ((_) ((_) _(_/(  (()(_) ')
+    # print('(_-</ _ \\| \'  \\()/ -_) |  _|| \' \\ | || \' \\))/ _` |  \\ V  V // -_)| \' \\))|  _|  \\ V  V /| \'_|/ _ \\| \' \\))/ _` |  ')
+    # print('/__/\\___/|_|_|_| \\___|  \\__||_||_||_||_||_| \\__, |   \\_/\\_/ \\___||_||_|  \\__|   \\_/\\_/ |_|  \\___/|_||_| \\__, |  ')
+    # print('                                            |___/                                                       |___/   ')
+    # print('')
 
     match errorType:
         case 'does_not_exist':
@@ -49,6 +53,7 @@ def call_error(param, errorType='none', minR=0, maxR=0):
 
     print('\033c', end='') # clear terminal
 
+# selecting a single person
 def name_web(selectedNumber, last=False):
     """creates name web"""
     global chosenName
@@ -287,6 +292,7 @@ def name_golf(r1, stage=0, last=False):
         chosenName = names[r1]
 
 def name_reaper(r1, last=False):
+    """creates reaper"""
     global chosenName
 
     r2, r3, r4, r5, r6, r7, r8 = random.randrange(len(names)), random.randrange(len(names)), random.randrange(len(names)), random.randrange(len(names)), random.randrange(len(names)), random.randrange(len(names)), random.randrange(len(names))
@@ -350,6 +356,7 @@ def name_reaper(r1, last=False):
         chosenName = names[r1]
 
 def name_flowers(r1, last=False):
+    """creates flowers"""
     global chosenName
 
     r2, r3, r4, r5 = random.randrange(len(names)), random.randrange(len(names)), random.randrange(len(names)), random.randrange(len(names))
@@ -414,16 +421,40 @@ def name_flowers(r1, last=False):
     if last:
         chosenName = names[r1]
 
+# selecting pairs
+def pair_base():
+    """creates tree branch"""
+    print(Fore.GREEN, end='')
+
+    for i in range(1, len(names), 2): # iterates over names, stepping by 2
+        print(names[i - 1] + ' and ' + names[i])
+
+        time.sleep(random.random() + MINIMUM_PAIR_TIME)
+
+    if len(names) % 2 == 1: # if amount of names is an odd number, print odd one out
+        print(names[-1])
+
+def pair_branch():
+    """creates tree branch"""
+    print(Fore.GREEN, end='')
+
+    for i in range(1, len(names), 2): # iterates over names, stepping by 2
+        print(names[i - 1] + ' and ' + names[i])
+
+        time.sleep(random.random() + MINIMUM_PAIR_TIME)
+
+    if len(names) % 2 == 1: # if amount of names is an odd number, print odd one out
+        print(names[-1])
 
 #* program *#
 while True:
     # PNAME Stick Letters
     print(Fore.BLUE, end='')
-    print(' __                  ___ ')
-    print('|__) |\\ |  /\\  |\\/| |__  ')
-    print('|    | \\| /~~\\ |  | |___ ')             
-    print(Fore.GREEN)
-    print('|| made by sbird ||')
+    tprint('pname', 'nancyj')
+    # print(' __                  ___ ')
+    # print('|__) |\\ |  /\\  |\\/| |__  ')
+    # print('|    | \\| /~~\\ |  | |___ ')           
+    print(Fore.GREEN + '|| made by sbird ||')
     print(Fore.MAGENTA)
     print('currently selected list file: ' + chosenListFile + '.txt')
 
@@ -440,6 +471,9 @@ while True:
     print(Fore.GREEN + '~ golf')
     print(Fore.BLUE + '~ flowers')
     print(Fore.YELLOW)
+    print('select pairs:')
+    print(Fore.RED + '~ branch')
+    print(Fore.YELLOW)
     print('adjustments:')
     print(Fore.BLUE + '> set list file (default: list)')
     print(Fore.RED)
@@ -450,6 +484,8 @@ while True:
     if userAction in OPTIONS:
         delay = 0
         random.shuffle(names)
+
+        print('\033c', end='') # clear terminal
 
         for i in range(TRICKLE_TIME):
             r = random.randrange(len(names))
@@ -493,6 +529,17 @@ while True:
         input('~~> ')
 
         print('\033c', end='') # clear terminal
+    elif userAction in PAIR_OPTIONS:
+        delay = 0
+        random.shuffle(names)
+
+        print('\033c', end='') # clear terminal
+
+        match userAction:
+            case 'branches' | 'branch': pair_branch()
+        
+        print(Fore.YELLOW)
+        input('~~> ')
     elif userAction in SET_OPTIONS:
         print(Fore.MAGENTA)
         print('enter your desired list file (must be a text file)')
