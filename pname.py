@@ -50,8 +50,7 @@ def call_error(param, errorType='none', minR=0, maxR=0):
             print('"' + param + '.txt" is not a valid file. Please try again.')
         case _:
             print('"' + param + '" is not a valid input. Please try again.')
-    print('')
-    input('~~> ')
+    input('~>')
 
     print('\033c', end='') # clear terminal
 
@@ -764,8 +763,7 @@ while True:
             print(Fore.BLUE)
             print(f'new list file -> {userFile}.txt')
 
-            print(Fore.YELLOW)
-            input('~~> ')
+            input('~>')
 
             print('\033c', end='') # clear terminal
         except:
@@ -786,8 +784,9 @@ while True:
 
             chosenListFile = Path(fileList[r]).stem
 
-        print(Fore.YELLOW)
-        input('~~> ')
+        input('~>')
+
+        print('\033c', end='') # clear terminal
     elif userAction ==  'quit' or userAction == 'q':
         sys.exit(0)
     else:
