@@ -23,12 +23,15 @@ You can add names to the list.txt file. For regular use, you can prepare a list 
 - displays suspenseful selection animation with fun ASCII art
 - select a different list file (e.g. "year10")
 - ability to select pairs
+- ability to select groups of 4
 
 ### to be added
 
 - ability to select larger groups
 
 ## Included Animations
+
+### selecting a single person
 
 - web 🕸️
 - spiderman 🕷️
@@ -38,5 +41,14 @@ You can add names to the list.txt file. For regular use, you can prepare a list 
 - calculator 🧮
 - golf 🏌️
 - flowers 🌷🌻🌼
-- _more to be added soon?_
+
+### selecting pairs
+
+- branches 🌳
+- waterfall 💧
+- caves ⛏️
+
+### selecting groups of 4
+
+- blocks 🧱
 
