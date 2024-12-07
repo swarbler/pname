@@ -1,6 +1,7 @@
 import random, time, math, sys, glob
 from colorama import Fore, Back, Style
 from art import *
+from pathlib import Path
 
 
 #* declaring variables *#
@@ -14,6 +15,7 @@ OPTIONS = ['web', 'spiderman', 'birds', 'bird', 'tv', 'television', 'calc', 'cal
 PAIR_OPTIONS = ['branches', 'branch', 'waterfall', 'caves', 'cave']
 FOUR_OPTIONS = ['blocks', 'block']
 SET_OPTIONS = ['set list file', 'set list', 'set file', 'list file', 'list', 'file']
+RANDOM_SET_OPTIONS = ['random list file', 'random list', 'random file', 'random']
 
 def setList():
     with open(chosenListFile + '.txt', 'r') as l:
@@ -658,6 +660,7 @@ while True:
     print(Fore.YELLOW)
     print('adjustments:')
     print(Fore.BLUE + '> set list file (default: list)')
+    print(Fore.MAGENTA + '> random list file')
 
     print(Fore.RED)
     print('~ quit')
@@ -745,9 +748,12 @@ while True:
         print(Fore.MAGENTA)
         print('enter your desired list file (must be a text file)')
         print(Fore.RED + ' ! note: do NOT include file extension. also, make sure list file is in the same directory as pyname !')
+        
+        # lists all .txt files
         print(Fore.BLUE)
         for i in glob.glob('*.txt'):
             print(f'-> {i}')
+        
         print(Fore.YELLOW)
         userFile = input('~~> ')
 
@@ -755,9 +761,33 @@ while True:
             chosenListFile = userFile
             names = setList()
 
+            print(Fore.BLUE)
+            print(f'new list file -> {userFile}.txt')
+
+            print(Fore.YELLOW)
+            input('~~> ')
+
             print('\033c', end='') # clear terminal
         except:
             call_error(userFile, 'invalid_file')
+    elif userAction in RANDOM_SET_OPTIONS:
+        fileList = glob.glob('*.txt')
+
+        print(Fore.BLUE)
+
+        if fileList == ['list.txt']:
+            print(Fore.BLUE)
+            print('new list file -> list.txt')
+
+            chosenListFile = 'list'
+        else:
+            r = random.randrange(1, len(fileList))
+            print(f'new list file -> {fileList[r]}')
+
+            chosenListFile = Path(fileList[r]).stem
+
+        print(Fore.YELLOW)
+        input('~~> ')
     elif userAction ==  'quit' or userAction == 'q':
         sys.exit(0)
     else:
