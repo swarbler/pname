@@ -1,4 +1,4 @@
-import random, time, math, sys
+import random, time, math, sys, glob
 from colorama import Fore, Back, Style
 from art import *
 
@@ -745,6 +745,9 @@ while True:
         print(Fore.MAGENTA)
         print('enter your desired list file (must be a text file)')
         print(Fore.RED + ' ! note: do NOT include file extension. also, make sure list file is in the same directory as pyname !')
+        print(Fore.BLUE)
+        for i in glob.glob('*.txt'):
+            print(f'-> {i}')
         print(Fore.YELLOW)
         userFile = input('~~> ')
 
