@@ -756,6 +756,8 @@ while True:
         print(Fore.YELLOW)
         userFile = input('~~> ')
 
+        pastListFile = chosenListFile
+
         try:
             chosenListFile = userFile
             names = setList()
@@ -767,6 +769,8 @@ while True:
 
             print('\033c', end='') # clear terminal
         except:
+            chosenListFile = pastListFile
+            
             call_error(userFile, 'invalid_file')
     elif userAction in RANDOM_SET_OPTIONS:
         fileList = glob.glob('*.txt')
