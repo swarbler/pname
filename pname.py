@@ -12,6 +12,7 @@ MINIMUM_PAIR_TIME = 0.2
 
 OPTIONS = ['web', 'spiderman', 'birds', 'bird', 'tv', 'television', 'calc', 'calculator', 'golf', 'reaper', 'death', 'flowers', 'flower']
 PAIR_OPTIONS = ['branches', 'branch', 'waterfall', 'caves', 'cave']
+FOUR_OPTIONS = ['blocks', 'block']
 SET_OPTIONS = ['set list file', 'set list', 'set file', 'list file', 'list', 'file']
 
 def setList():
@@ -542,6 +543,50 @@ def pair_caves():
 
         print(cLeft * '%' + cRight * 'X')
 
+# selecting groups of 4
+def four_blocks():
+    """creates blocks"""
+    counter = 0
+
+    B_COLOURS = [Fore.RED, Fore.GREEN, Fore.BLUE, Fore.YELLOW, Fore.CYAN]
+
+    for i in range(3, len(names), 4): # iterates over names, stepping by 4
+        # colours iterate through B_COLOURS
+        # e.g. first is red, second is green, third is blue...
+        print(B_COLOURS[counter])
+        
+        # sets spacing for each name
+        spacing1 = 25 - len(names[i-3][:25])
+        spacing2 = 25 - len(names[i-2][:25])
+        spacing3 = 25 - len(names[i-1][:25])
+        spacing4 = 25 - len(names[i][:25])
+        
+        # creates block
+        print(f'|{'~' * 55}|')
+        print(f'| {' ' * spacing1}{names[i-3][:25]} | {names[i-2][:25]}{' ' * spacing2} |')
+        print(f'|{'~' * 55}|')
+        print(f'| {' ' * spacing1}{names[i-3][:25]} | {names[i-2][:25]}{' ' * spacing2} |')
+        print(f'|{'~' * 55}|')
+        
+        # counter goes from 0 to 4
+        if counter == 4:
+            counter = 0
+        else:
+            counter += 1
+
+
+    # display remainder names
+    match len(names) % 4:
+        case 3:
+            print(Fore.MAGENTA)
+            print(f'remainder: {names[-3]}, {names[-2]}, and {names[-1]}')
+        case 2:
+            print(Fore.MAGENTA)
+            print(f'remainder: {names[-2]} and {names[-1]}')
+        case 1:
+            print(Fore.MAGENTA)
+            print(f'remainder: {names[-1]}')
+
 
 #* program *#
 while True:
@@ -574,6 +619,10 @@ while True:
     print(Fore.RED + '~ branch')
     print(Fore.BLUE + '~ waterfall')
     print(Fore.MAGENTA + '~ caves')
+
+    print(Fore.YELLOW)
+    print('select groups of 4:')
+    print(Fore.GREEN + '~ blocks')
 
     print(Fore.YELLOW)
     print('adjustments:')
@@ -643,6 +692,19 @@ while True:
             case 'branches' | 'branch': pair_branch()
             case 'waterfall': pair_waterfall()
             case 'caves' | 'cave': pair_caves()
+        
+        print(Fore.YELLOW)
+        input('~~> ')
+
+        print('\033c', end='') # clear terminal
+    elif userAction in FOUR_OPTIONS:
+        delay = 0
+        random.shuffle(names)
+
+        print('\033c', end='') # clear terminal
+
+        match userAction:
+            case 'blocks' | 'block': four_blocks()
         
         print(Fore.YELLOW)
         input('~~> ')
