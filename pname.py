@@ -91,6 +91,11 @@ def name_spiderman(r1, last=False):
 
     r2, r3, r4, r5 = random.randrange(len(names)), random.randrange(len(names)), random.randrange(len(names)), random.randrange(len(names))
 
+    # sets spacing
+    s2 = 16 - len(names[r2][:16])
+    s4 = 16 - len(names[r4][:16])
+    s5 = 24 - len(names[r5][:24])
+
     print(Fore.RED, end='')
     print('  _                                                                        ')
     print(' _\\`.                                                                      ')
@@ -98,14 +103,14 @@ def name_spiderman(r1, last=False):
     print('/.--     _        `._                                                      ')
     print('`_.-\'.-. \\"-.   ,--. \\                                                     ')
     if last:
-        print('`---"   `.;  `.\' -. `."-.               ' + Fore.MAGENTA + names[r1][:30] + Fore.RED)
+        print(f'`---"   `.;  `.\' -. `."-.               {Fore.MAGENTA}{names[r1][:30]}{Fore.RED}')
     else:
-        print('`---"   `.;  `.\' -. `."-.               ' + Fore.GREEN + names[r1][:30] + Fore.RED)
+        print(f'`---"   `.;  `.\' -. `."-.               {Fore.GREEN}{names[r1][:30]}{Fore.RED}')
     print('               `---\\  `. "-.  ____                                         ')
     print('\\                   \\   "-._`"    `.                                       ')
     print('``.-,                `.     `._     \\                      _.-.            ')
     print('   "-:                 "-.    \\`.    "-._               .-"    `.          ')
-    print('     :\\ '  + Fore.CYAN + names[r2][:16] + ' ' * (16 - len(names[r2][:16])) + Fore.RED + ' +  +   "-.__\\ \\   ;   "-.          .\'     _   \\         ')
+    print(f'     :\\ {Fore.CYAN}{names[r2][:16]}{' ' * s2}{Fore.RED} +  +   "-.__\\ \\   ;   "-.          .\'     _   \\         ')
     print('      \\;                    j. :`-:_.\'      \'.---..--\'.   .-";`.  \\_ /; _  ')
     print('       :)                  :  `;  :        .\'     \\    ` ; .\'`-.;  \\7 L\'/  ')
     print('       ;                   ;   ;  ; `-.__,/ :\\     ;    /-"     `.   \'-+__ ')
@@ -114,11 +119,11 @@ def name_spiderman(r1, last=False):
     print('  (/              __       :     :. : /  ;  "" (.\'                  "      ')
     print('  :)   _;      .-\'  \\       \\    ;  _\\\\o_\'    .:                           ')
     print('   \\  :/      :    `."-.     ;   ; /,\' :-\'\'=-\'/                            ')
-    print('    `-\'       ;      ;  "-._ ;_ :   :_.\') .\'+-"    '  + Fore.CYAN + names[r3][:24] + ' ' * (24 - len(names[r3][:24])) + Fore.RED)
+    print(f'    `-\'       ;      ;  "-._ ;_ :   :_.\') .\'+-"    {Fore.CYAN}{names[r3][:30]}{Fore.RED}')
     print('              :      :      `; "\'      \'/ /"""--.._                        ')
     print('               \\      `+.     `,       :.\'         "-.                     ')
     print('                ;      : \\      \\_..--""              "-.                  ')
-    print('                :`-..-"   \\   '  + Fore.CYAN + names[r4][:16] + ' ' * (16 - len(names[r4][:16])) + Fore.RED + '         ""-._               ')
+    print(f'                :`-..-"   \\   {Fore.CYAN}{names[r4][:16]}{' ' * s4}{Fore.RED}         ""-._               ')
     print('                 \\         ;     .----._                  ,\'l              ')
     print('                  `.       : _.-"       ""--..____..__    ; :              ')
     print('                    "-.     `._    bug                )     ;              ')
@@ -127,7 +132,7 @@ def name_spiderman(r1, last=False):
     print('                             "-._   .\'  )            :      ;              ')
     print('                                 "-._.-"              \\    :               ')
     print('                                                       ;   ;               ')
-    print('  '  + Fore.CYAN + names[r5][:24] + ' ' * (24 - len(names[r5][:24])) + Fore.RED + '                             |  :                ')
+    print(f'  {Fore.CYAN}{names[r5][:24]}{' ' * s5}{Fore.RED}                             |  :                ')
     print('                                                      _:  :                ')
     print('                                                     l     `.              ')
     print('                                                     \'-._    `.            ')
@@ -143,20 +148,28 @@ def name_birds(selectedNumber, last=False):
     global chosenName
 
     print(Fore.CYAN, end='')
+
+    # bird heads
     print('   (                          \\\\')
     if last:
         print('  `-`-.               \\\\      (->')
-        print('  \'( - >              (->     //\\      ' + Fore.MAGENTA + names[selectedNumber][:20] + Fore.CYAN)
+        print(f'  \'( - >              (->     //\\      {Fore.MAGENTA}{names[selectedNumber][:20]}{Fore.CYAN}')
     else:
         print('  `-`-.               \\\\      (o>')
-        print('  \'( O >              (o>     //\\      ' + Fore.GREEN + names[selectedNumber][:20] + Fore.CYAN)
+        print(f'  \'( O >              (o>     //\\      {Fore.GREEN}{names[selectedNumber][:20]}{Fore.CYAN}')
+    
+    # bird feet
     print('   _) (           ____(()_____V_/_____')
     print('  /    )              ||      ||               ,_,')
+    
+    # owl head
     if last:
         print(' /_,\'  /                     ||               (.,.)')
     else:
         print(' /_,\'  /                     ||               (O,O)')
     print('   \\  /                                       (   )')
+    
+    # bird and owl feet
     print('===m""m=========================         ------"-"-------')
 
     if last:
@@ -166,14 +179,17 @@ def name_tv(selectedNumber, last=False):
     """creates tv"""
     global chosenName
 
+    # sets spacing
+    s = 14 - len(names[selectedNumber][:14])
+
     print(Fore.GREEN, end='')
     print(' _____________________     ')
     print('|,----------------.  |\\    ')
     print('||                 |=| |   ')
     if last:
-        print('|| ' + Fore.MAGENTA + names[selectedNumber][:14] + ' ' * (14 - len(names[selectedNumber][:14])) + Fore.GREEN + ' || | |   ')
+        print(f'||{Fore.MAGENTA}{names[selectedNumber][:14]}{' ' * s}{Fore.GREEN}|| | |   ')
     else:
-        print('|| ' + Fore.BLUE + names[selectedNumber][:14] + ' ' * (14 - len(names[selectedNumber][:14])) + Fore.GREEN + ' || | |   ')
+        print(f'||{Fore.BLUE}{names[selectedNumber][:14]}{' ' * s}{Fore.GREEN}|| | |   ')
     print('||             . _o| | | __')
     print('|`-----------------\' |/ /~/')
     print(' ~~~~~~~~~~~~~~~~~~~~~ / / ')
@@ -186,13 +202,16 @@ def name_calc(selectedNumber, last=False):
     """creates calculator"""
     global chosenName
 
+    # sets spacing
+    s = 8 - len(names[selectedNumber][:8])
+
     print(Fore.GREEN, end='')
     print(' __________ ')
     print('| ________ |')
     if last:
-        print('||' + Fore.MAGENTA + names[selectedNumber][:8] + ' ' * (8 - len(names[selectedNumber][:8])) + Fore.GREEN + '||')
+        print(f'||{Fore.MAGENTA}{names[selectedNumber][:8]}{' ' * s}{Fore.GREEN}||')
     else:
-        print('||' + Fore.BLUE + names[selectedNumber][:8] + ' ' * (8 - len(names[selectedNumber][:8])) + Fore.GREEN + '||')
+        print(f'||{Fore.BLUE}{names[selectedNumber][:8]}{' ' * s}{Fore.GREEN}||')
     print('|""""""""""|')
     print('|[M|#|C][-]|')
     print('|[7|8|9][+]|')
@@ -307,46 +326,46 @@ def name_reaper(r1, last=False):
     print('          / .-\\  ./=)       ')
     if last:
         if rselect == 0:
-            print('         |  |*|_/\\/|        ' + Fore.MAGENTA + names[r1][:30] + Fore.RED)
+            print(f'         |  |*|_/\\/|        {Fore.MAGENTA}{names[r1][:30]}{Fore.RED}')
         else:
             match rselect:
-                case 1: print('         |  |*|_/\\/|        ' + Fore.BLUE + names[r2][:30] + Fore.RED)
-                case 2: print('         |  |*|_/\\/|        ' + Fore.BLUE + names[r3][:30] + Fore.RED)
-                case 3: print('         |  |*|_/\\/|        ' + Fore.BLUE + names[r4][:30] + Fore.RED)
-                case 4: print('         |  |*|_/\\/|        ' + Fore.BLUE + names[r5][:30] + Fore.RED)
-                case 5: print('         |  |*|_/\\/|        ' + Fore.BLUE + names[r6][:30] + Fore.RED)
-                case 6: print('         |  |*|_/\\/|        ' + Fore.BLUE + names[r7][:30] + Fore.RED)
-                case 7: print('         |  |*|_/\\/|        ' + Fore.BLUE + names[r8][:30] + Fore.RED)
+                case 1: print(f'         |  |*|_/\\/|        {Fore.BLUE}{names[r2][:30]}{Fore.RED}')
+                case 2: print(f'         |  |*|_/\\/|        {Fore.BLUE}{names[r3][:30]}{Fore.RED}')
+                case 3: print(f'         |  |*|_/\\/|        {Fore.BLUE}{names[r4][:30]}{Fore.RED}')
+                case 4: print(f'         |  |*|_/\\/|        {Fore.BLUE}{names[r5][:30]}{Fore.RED}')
+                case 5: print(f'         |  |*|_/\\/|        {Fore.BLUE}{names[r6][:30]}{Fore.RED}')
+                case 6: print(f'         |  |*|_/\\/|        {Fore.BLUE}{names[r7][:30]}{Fore.RED}')
+                case 7: print(f'         |  |*|_/\\/|        {Fore.BLUE}{names[r8][:30]}{Fore.RED}')
     else:
-        print('         |  |"|_/\\/|        ' + Fore.BLUE + names[r1][:30] + Fore.RED)
+        print(f'         |  |"|_/\\/|        {Fore.BLUE}{names[r1][:30]}{Fore.RED}')
     if last and rselect == 1:
-        print('         ;  |-;| /_|        ' + Fore.MAGENTA + names[r1][:30] + Fore.RED)
+        print(f'         ;  |-;| /_|        {Fore.MAGENTA}{names[r1][:30]}{Fore.RED}')
     else:
-        print('         ;  |-;| /_|        ' + Fore.BLUE + names[r2][:30] + Fore.RED)
+        print(f'         ;  |-;| /_|        {Fore.BLUE}{names[r2][:30]}{Fore.RED}')
     if last and rselect == 2:
-        print('        / \\_| |/ \\ |        ' + Fore.MAGENTA + names[r1][:30] + Fore.RED)
+        print(f'        / \\_| |/ \\ |        {Fore.MAGENTA}{names[r1][:30]}{Fore.RED}')
     else:
-        print('        / \\_| |/ \\ |        ' + Fore.BLUE + names[r3][:30] + Fore.RED)
+        print(f'        / \\_| |/ \\ |        {Fore.BLUE}{names[r3][:30]}{Fore.RED}')
     if last and rselect == 3:
-        print('       /      \\/\\( |        ' + Fore.MAGENTA + names[r1][:30] + Fore.RED)
+        print(f'       /      \\/\\( |        {Fore.MAGENTA}{names[r1][:30]}{Fore.RED}')
     else:
-        print('       /      \\/\\( |        ' + Fore.BLUE + names[r4][:30] + Fore.RED)
+        print(f'       /      \\/\\( |        {Fore.BLUE}{names[r4][:30]}{Fore.RED}')
     if last and rselect == 4:
-        print('       |   /  |` ) |        ' + Fore.MAGENTA + names[r1][:30] + Fore.RED)
+        print(f'       |   /  |` ) |        {Fore.MAGENTA}{names[r1][:30]}{Fore.RED}')
     else:
-        print('       |   /  |` ) |        ' + Fore.BLUE + names[r5][:30] + Fore.RED)
+        print(f'       |   /  |` ) |        {Fore.BLUE}{names[r5][:30]}{Fore.RED}')
     if last and rselect == 5:
-        print('       /   \\ _/    |        ' + Fore.MAGENTA + names[r1][:30] + Fore.RED)
+        print(f'       /   \\ _/    |        {Fore.MAGENTA}{names[r1][:30]}{Fore.RED}')
     else:
-        print('       /   \\ _/    |        ' + Fore.BLUE + names[r6][:30] + Fore.RED)
+        print(f'       /   \\ _/    |        {Fore.BLUE}{names[r6][:30]}{Fore.RED}')
     if last and rselect == 6:
-        print('      /--._/  \\    |        ' + Fore.MAGENTA + names[r1][:30] + Fore.RED)
+        print(f'      /--._/  \\    |        {Fore.MAGENTA}{names[r1][:30]}{Fore.RED}')
     else:
-        print('      /--._/  \\    |        ' + Fore.BLUE + names[r7][:30] + Fore.RED)
+        print(f'      /--._/  \\    |        {Fore.BLUE}{names[r7][:30]}{Fore.RED}')
     if last and rselect == 7:
-        print('      `/|)    |    /        ' + Fore.MAGENTA + names[r1][:30] + Fore.RED)
+        print(f'      `/|)    |    /        {Fore.MAGENTA}{names[r1][:30]}{Fore.RED}')
     else:
-        print('      `/|)    |    /        ' + Fore.BLUE + names[r8][:30] + Fore.RED)
+        print(f'      `/|)    |    /        {Fore.BLUE}{names[r8][:30]}{Fore.RED}')
     print('        /     |   |         ')
     print('      .\'      |   |         ')
     print('jgs  /         \\  |         ')
@@ -410,9 +429,9 @@ def name_flowers(r1, last=False):
         print(((s3 * 3) * ' ') + names[r5])
     
     print('')
-    print('            ' + Fore.YELLOW + 'wWWWw' + Fore.GREEN + '               ' + Fore.CYAN + 'wWWWw' + Fore.GREEN + '            ')
-    print('      ' + Fore.RED + 'vVVVv' + Fore.GREEN + ' (___) ' + Fore.BLUE + 'wWWWw' + Fore.GREEN + '         (___)  ' + Fore.BLUE + 'vVVVv' + Fore.GREEN + '     ')
-    print('      (___)  ~Y~  (___)  ' + Fore.MAGENTA + 'vVVVv' + Fore.GREEN + '   ~Y~   (___)     ')
+    print(f'            {Fore.YELLOW}wWWWw{Fore.GREEN}               {Fore.CYAN}wWWWw{Fore.GREEN}            ')
+    print(f'      {Fore.RED}vVVVv{Fore.GREEN} (___) {Fore.BLUE}wWWWw{Fore.GREEN}         (___)  {Fore.BLUE}vVVVv{Fore.GREEN}     ')
+    print(f'      (___)  ~Y~  (___)  {Fore.MAGENTA}vVVVv{Fore.GREEN}   ~Y~   (___)     ')
     print('       ~Y~   \\|    ~Y~   (___)    |/    ~Y~      ')
     print('       \\|   \\ |/   \\| /  \\~Y~/   \\|    \\ |/      ')
     print('      \\\\|// \\\\|// \\\\|/// \\\\|//  \\\\|// \\\\\\|///    ')
@@ -428,8 +447,8 @@ def pair_branch():
 
     for i in range(1, len(names), 2): # iterates over names, stepping by 2
         # prints names beside branch
-        print('      %@@@@%::;           ;@%%%%%%;\'   ' + names[i - 1][:50]) 
-        print('      %@@@@%::;%@@@o%::%@@%;   and ' + names[i][:50])
+        print(f'      %@@@@%::;           ;@%%%%%%;\'   {names[i - 1][:50]}') 
+        print(f'      %@@@@%::;%@@@o%::%@@%;   and {names[i][:50]}')
 
         # continues trunk
         print('  `.. %@@@o%::;         ')
@@ -442,7 +461,7 @@ def pair_branch():
     # base of tree
     print('      %@@%%%::;')
     if len(names) % 2 == 1: # if amount of names is an odd number, print odd one out
-        print('      %@@@%(o);  . \'   ' + names[-1][:50])
+        print(f'      %@@@%(o);  . \'   {names[-1][:50]}')
     else:
         print('      %@@@%(o);  . \'        ') 
     
@@ -465,9 +484,13 @@ def pair_waterfall():
     print('~~~                            ~~~~-----...___________..--------   ')
     
     for i in range(1, len(names), 2): # iterates over names, stepping by 2
+        # sets spacing
+        spacing1 = 36 - len(names[i-1][:36])
+        spacing2 = 40 - len(names[i][:40])
+        
         # prints names beside waterfall
-        print(' ' + ' ' * (36 - len(names[i - 1][:36])) + names[i - 1][:36] + ' and' + '  |   |     |             ')
-        print(' ' + ' ' * (40 - len(names[i][:40])) + names[i][:40] + '  | |   |  ||             ')
+        print(f' {' ' * spacing1}{names[i - 1][:36]} and  |   |     |             ')
+        print(f' {' ' * spacing2}{names[i][:40]}  | |   |  ||             ')
         
         # continues waterfall
         print('                                           |  |  |   |             ')
@@ -479,7 +502,10 @@ def pair_waterfall():
     print('___________________________________________|0oOO0oO0o|____________ ')
     print(' -          -         -       -      -    / \'  \'. ` ` \\    -    -  ')
     if len(names) % 2 == 1: # if amount of names is an odd number, print odd one out
-        print(' ' * (25 - len(names[-1][:25])) + names[-1][:25] + ' --   /    \'  . `   ` \\    --    ')
+        # sets spacing
+        lastSpacing = 25 - len(names[-1][:25])
+        
+        print(f'{' ' * lastSpacing}{names[-1][:25]} --   /    \'  . `   ` \\    --    ')
     else:
         print('      --                  --       --   /    \'  . `   ` \\    --    ')
     print('---     AMC    ---          ---       /  \'                \\ ---    ')
@@ -507,7 +533,7 @@ def pair_caves():
         spacingRight = math.ceil((40 - textLength) / 2)
 
         # prints line with cave walls, spacing, and names
-        print(rLeft * '%' + spacingLeft * ' ' + (names[i - 1] + ' and ' + names[i])[:40] + spacingRight * ' ' + rRight * 'X')
+        print(f'{rLeft * '%'}{spacingLeft * ' '}{names[i - 1]} and {names[i][:40]}{spacingRight * ' '}{rRight * 'X'}')
 
         # continues cave
         for i in range(random.randrange(1, 4)): # random amount of cave spacing
@@ -519,15 +545,18 @@ def pair_caves():
         time.sleep(random.random() + MINIMUM_PAIR_TIME) # random amount of delay
 
     if len(names) % 2 == 1: # if amount of names is an odd number, print odd one out
-        rLeft = random.randrange(1, 40)
-        rRight = 40 - rLeft
+        rLeft = random.randrange(1, 40) # random amount of cave walls
+        rRight = 40 - rLeft # amount depends on rLeft
 
         textLength = len(names[-1][:40])
 
+        # makes sure width of cave is 40
+        # splits spacing equally between left and right
         spacingLeft = math.floor((40 - textLength) / 2)
         spacingRight = math.ceil((40 - textLength) / 2)
 
-        print(rLeft * '%' + spacingLeft * ' ' + names[-1][:40] + spacingRight * ' ' + rRight * 'X')
+        # prints line with cave walls, spacing, and names
+        print(f'{rLeft * '%'}{spacingLeft * ' '}{names[-1][:40]}{spacingRight * ' '}{rRight * 'X'}')
 
         # continues cave
         for i in range(random.randrange(1, 4)): # random amount of cave spacing
