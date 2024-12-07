@@ -594,7 +594,7 @@ def four_blocks():
         print(f'|{'~' * 55}|')
         print(f'| {' ' * spacing1}{names[i-3][:25]} | {names[i-2][:25]}{' ' * spacing2} |')
         print(f'|{'~' * 55}|')
-        print(f'| {' ' * spacing1}{names[i-3][:25]} | {names[i-2][:25]}{' ' * spacing2} |')
+        print(f'| {' ' * spacing3}{names[i-1][:25]} | {names[i][:25]}{' ' * spacing4} |')
         print(f'|{'~' * 55}|')
         
         # counter goes from 0 to 4
@@ -602,6 +602,8 @@ def four_blocks():
             counter = 0
         else:
             counter += 1
+        
+        time.sleep(random.random() + MINIMUM_PAIR_TIME) # random amount of delay
 
 
     # display remainder names
