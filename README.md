@@ -1,5 +1,7 @@
 # pname
 
+![main menu](/screenshots/screenshot-main-menu.png)
+
 a simple program I made that selects names randomly from a list file
 
 ## What is it?
@@ -22,6 +24,9 @@ You can add names to the list.txt file. For regular use, you can prepare a list 
 - reads a list.txt file
 - displays suspenseful selection animation with fun ASCII art
 - select a different list file (e.g. "year10")
+
+![changing list file](/screenshots/screenshot-change-list-file.png)
+
 - ability to select pairs
 - ability to select groups of 4
 
@@ -34,21 +39,58 @@ You can add names to the list.txt file. For regular use, you can prepare a list 
 ### selecting a single person
 
 - web 🕸️
+
+![web](/screenshots/screenshot-web.png)
+
 - spiderman 🕷️
+
+![spiderman](/screenshots/screenshot-spiderman.png)
+
 - birds 🐦
+
+![birds](/screenshots/screenshot-birds.png)
+
 - television 📺
+
+![television](/screenshots/screenshot-tv.png)
+
 - reaper ☠️
+
+![reaper](/screenshots/screenshot-reaper.png)
+
 - calculator 🧮
+
+![calculator](/screenshots/screenshot-calculator.png)
+
 - golf 🏌️
+
+![golf](/screenshots/screenshot-golf-1.png)
+![golf 2](/screenshots/screenshot-golf-2.png)
+
 - flowers 🌷🌻🌼
+
+![flowers](/screenshots/screenshot-flowers.png)
+
 
 ### selecting pairs
 
 - branches 🌳
+
+![branch pairs](/screenshots/screenshot-branches.png)
+
 - waterfall 💧
+
+![waterfall pairs](/screenshots/screenshot-waterfall.png)
+
 - caves ⛏️
+
+![cave pairs](/screenshots/screenshot-caves.png)
+
 
 ### selecting groups of 4
 
 - blocks 🧱
+
+![block groups of 4](/screenshots/screenshot-blocks.png)
+
 
